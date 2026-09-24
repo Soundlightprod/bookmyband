@@ -66,7 +66,9 @@
   .form input:focus,.form select:focus,.form textarea:focus{outline:none; border-color:#ff2d55;}
   .form .note{color:var(--muted); font-size:.86rem;}
   .msg{display:none; padding:14px 16px; border-radius:12px; font-weight:700;} .msg.ok{display:block; background:rgba(40,200,120,.12); border:1px solid rgba(40,200,120,.5); color:#8ff0bd;} .msg.ko{display:block; background:rgba(255,45,85,.12); border:1px solid rgba(255,45,85,.5); color:#ff9db0;}
-  .btn[disabled]{opacity:.6; cursor:wait;} .form .note a{color:#fff;}
+  .form button.btn{display:inline-block; padding:16px 34px; border-radius:40px; border:0; font:800 1rem 'Manrope',sans-serif; color:#fff; background:var(--grad); cursor:pointer; align-self:flex-start; box-shadow:0 10px 30px rgba(255,45,85,.35);}
+  .btn[disabled]{opacity:.6; cursor:wait;}
+  @media (max-width:640px){ .form button.btn{align-self:stretch;} } .form .note a{color:#fff;}
   @media (max-width:640px){ .form .row{grid-template-columns:1fr;} }
 
 
