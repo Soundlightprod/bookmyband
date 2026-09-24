@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Réserver un artiste | Book My Band</title>
+<meta name="description" content="Demandez un devis gratuit pour réserver un artiste Book My Band pour votre événement.">
+<meta property="og:title" content="Contact — Réserver un artiste | Book My Band"><meta property="og:description" content="Demandez un devis gratuit pour réserver un artiste Book My Band pour votre événement."><meta property="og:image" content="bmb-banniere.jpg"><meta property="og:type" content="website">
+<link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Manrope',sans-serif; line-height:1.6; overflow-x:hidden;}
+
+  .wrap{max-width:1220px; margin:0 auto; padding:70px 24px;}
+  .kicker{font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--amber);}
+  .sec-title{font-family:'Unbounded',sans-serif; font-weight:800; font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.08; margin:10px 0 14px;}
+  .lead{color:var(--muted); font-size:1.05rem; max-width:640px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:22px; margin-top:36px;}
+  .card{position:relative; display:flex; flex-direction:column; background:var(--ink-2); border:1px solid var(--line); border-radius:18px; overflow:hidden; text-decoration:none; color:#fff; transition:transform .25s, border-color .25s, box-shadow .25s;}
+  .card:hover{transform:translateY(-5px); border-color:rgba(255,45,85,.6); box-shadow:0 16px 40px rgba(255,45,85,.18);}
+  .card img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:#111;}
+  .card .in{padding:18px 20px 22px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card .tag{align-self:flex-start; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; padding:5px 11px; border-radius:20px; background:var(--grad); color:#fff; font-weight:700;}
+  .card h3{font-family:'Unbounded',sans-serif; font-size:1.18rem; font-weight:800;}
+  .card p{color:var(--muted); font-size:.92rem; flex:1;}
+  .card .go{font-weight:800; font-size:.88rem;}
+  .card .go span{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .filters{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .filters button{font-family:'Manrope',sans-serif; font-weight:700; font-size:.88rem; color:#ddd; background:transparent; border:1px solid var(--line); border-radius:30px; padding:9px 18px; cursor:pointer; transition:all .2s;}
+  .filters button:hover{border-color:#ff2d55; color:#fff;}
+  .filters button.on{background:var(--grad); border-color:transparent; color:#fff;}
+  .card.hide{display:none;}
+
+  .wrap{max-width:1220px; margin:0 auto; padding:70px 24px;}
+  .kicker{font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--amber);}
+  .sec-title{font-family:'Unbounded',sans-serif; font-weight:800; font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.08; margin:10px 0 14px;}
+  .lead{color:var(--muted); font-size:1.05rem; max-width:640px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:22px; margin-top:36px;}
+  .card{position:relative; display:flex; flex-direction:column; background:var(--ink-2); border:1px solid var(--line); border-radius:18px; overflow:hidden; text-decoration:none; color:#fff; transition:transform .25s, border-color .25s, box-shadow .25s;}
+  .card:hover{transform:translateY(-5px); border-color:rgba(255,45,85,.6); box-shadow:0 16px 40px rgba(255,45,85,.18);}
+  .card img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:#111;}
+  .card .in{padding:18px 20px 22px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card .tag{align-self:flex-start; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; padding:5px 11px; border-radius:20px; background:var(--grad); color:#fff; font-weight:700;}
+  .card h3{font-family:'Unbounded',sans-serif; font-size:1.18rem; font-weight:800;}
+  .card p{color:var(--muted); font-size:.92rem; flex:1;}
+  .card .go{font-weight:800; font-size:.88rem;}
+  .card .go span{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .filters{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .filters button{font-family:'Manrope',sans-serif; font-weight:700; font-size:.88rem; color:#ddd; background:transparent; border:1px solid var(--line); border-radius:30px; padding:9px 18px; cursor:pointer; transition:all .2s;}
+  .filters button:hover{border-color:#ff2d55; color:#fff;}
+  .filters button.on{background:var(--grad); border-color:transparent; color:#fff;}
+  .card.hide{display:none;}
+
+  .hero{position:relative; overflow:hidden; padding:36px 24px 40px;}
+  .hero .glow1{position:absolute; width:60vw; height:60vw; left:-20vw; top:-30vw; background:radial-gradient(circle, rgba(255,31,143,.35), transparent 65%); pointer-events:none;}
+  .hero .glow2{position:absolute; width:50vw; height:50vw; right:-15vw; top:-10vw; background:radial-gradient(circle, rgba(255,138,0,.28), transparent 65%); pointer-events:none;}
+  .hero-in{position:relative; max-width:1220px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:34px; text-align:center;}
+  .hero-banner{width:100%; height:auto; border-radius:22px; display:block; box-shadow:0 20px 60px rgba(255,45,85,.18);}
+  .hero-txt{max-width:860px;} .hero-txt p{margin-left:auto !important; margin-right:auto !important;} .hero-txt 
+  .btn{display:inline-block; text-decoration:none; font-weight:800; padding:15px 28px; border-radius:40px; font-size:.95rem; border:0; cursor:pointer; font-family:'Manrope',sans-serif;}
+  .btn-grad{background:var(--grad); color:#fff; box-shadow:0 10px 30px rgba(255,45,85,.35);}
+  .form{margin-top:34px; display:flex; flex-direction:column; gap:18px; background:var(--ink-2); border:1px solid var(--line); border-radius:22px; padding:30px;}
+  .form .row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .form label{display:flex; flex-direction:column; gap:7px; font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--amber);}
+  .form input,.form select,.form textarea{font:inherit; font-size:1rem; text-transform:none; letter-spacing:0; font-weight:500; color:#fff; background:#0d0d0d; border:1px solid var(--line); border-radius:12px; padding:13px 14px;}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:none; border-color:#ff2d55;}
+  .form .note{color:var(--muted); font-size:.86rem;}
+  .msg{display:none; padding:14px 16px; border-radius:12px; font-weight:700;} .msg.ok{display:block; background:rgba(40,200,120,.12); border:1px solid rgba(40,200,120,.5); color:#8ff0bd;} .msg.ko{display:block; background:rgba(255,45,85,.12); border:1px solid rgba(255,45,85,.5); color:#ff9db0;}
+  .btn[disabled]{opacity:.6; cursor:wait;} .form .note a{color:#fff;}
+  @media (max-width:640px){ .form .row{grid-template-columns:1fr;} }
+
+
+  :root{--ink:#0a0a0a; --ink-2:#151515; --paper:#ffffff; --muted:#a9a9b3; --line:rgba(255,255,255,0.12);
+        --gold:#ff2d55; --amber:#ff8a1f; --violet:#ff2d55; --blue:#ff6a00; --pink:#ff2d55;
+        --grad:linear-gradient(90deg,#ff1f8f 0%,#ff4d3a 55%,#ffae00 100%);}
+  body{background:var(--ink) !important; color:var(--paper);}
+  h1,h2,h3{font-family:'Unbounded',sans-serif !important; letter-spacing:-0.01em !important;}
+  .label{color:var(--amber) !important;}
+  .hb1{background:radial-gradient(circle, rgba(255,31,143,.55), transparent 70%) !important;}
+  .hb2{background:radial-gradient(circle, rgba(255,138,0,.5), transparent 70%) !important;}
+  .btn-primary{background:var(--grad) !important; color:#fff !important; border:0 !important;}
+  .grad-text{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  /* En-tête Book My Band */
+  .bmb-head{position:sticky; top:0; z-index:50; background:rgba(10,10,10,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .bmb-nav{max-width:1220px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 24px;}
+  .bmb-brand img{height:62px; width:62px; border-radius:50%; display:block;}
+  .bmb-nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0;}
+  .bmb-nav ul a{color:#d6d6de; text-decoration:none; font-weight:700; font-size:.92rem; font-family:'Manrope',sans-serif; transition:color .2s;}
+  .bmb-nav ul a:hover, .bmb-nav ul a.on{color:#fff;}
+  .bmb-nav ul a.on{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .bmb-cta{background:var(--grad); color:#fff; text-decoration:none; font-weight:800; font-size:.86rem; padding:11px 20px; border-radius:40px; white-space:nowrap; font-family:'Manrope',sans-serif; box-shadow:0 6px 24px rgba(255,45,85,.35);}
+  .bmb-burger{display:none; background:none; border:1px solid var(--line); border-radius:8px; width:42px; height:42px; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px; padding:0;}
+  .bmb-burger span{display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:transform .25s, opacity .25s;}
+  .bmb-head.open .bmb-burger span:nth-child(1){transform:translateY(7px) rotate(45deg);} .bmb-head.open .bmb-burger span:nth-child(2){opacity:0;} .bmb-head.open .bmb-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  @media (max-width:900px){
+    .bmb-nav{position:relative;} .bmb-burger{display:flex;} .bmb-cta{margin-left:auto; padding:9px 14px; font-size:.8rem;}
+    .bmb-nav ul{display:none;} .bmb-brand img{height:50px; width:50px;}
+    .bmb-head.open .bmb-nav ul{display:flex; flex-direction:column; gap:0; position:absolute; top:100%; left:0; right:0; background:#0a0a0a; border-bottom:1px solid var(--line); padding:6px 24px 16px;}
+    .bmb-head.open .bmb-nav ul li{border-bottom:1px solid var(--line);} .bmb-head.open .bmb-nav ul li:last-child{border:0;}
+    .bmb-head.open .bmb-nav ul a{display:block; padding:14px 2px; font-size:1rem;}
+  }
+  /* Pied de page */
+  .bmb-foot{border-top:1px solid var(--line); padding:50px 24px 34px; margin-top:40px; background:#070707;}
+  .bmb-foot-in{max-width:1220px; margin:0 auto; display:grid; grid-template-columns:auto 1fr 1fr; gap:40px; align-items:start;}
+  .bmb-foot img{height:96px; width:96px; border-radius:50%;}
+  .bmb-foot h4{font-family:'Unbounded',sans-serif; font-size:.85rem; margin-bottom:12px; color:#fff;}
+  .bmb-foot a{display:block; color:var(--muted); text-decoration:none; font-size:.9rem; margin-bottom:8px;}
+  .bmb-foot a:hover{color:#fff;}
+  .bmb-legal{max-width:1220px; margin:30px auto 0; padding-top:20px; border-top:1px solid var(--line); color:#777; font-size:.76rem; text-align:center;}
+  .bmb-legal a{display:inline; color:inherit;}
+  @media (max-width:760px){ .bmb-foot-in{grid-template-columns:1fr; text-align:center;} .bmb-foot img{margin:0 auto;} }
+
+</style>
+</head>
+<body>
+<header class="bmb-head">
+  <div class="bmb-nav">
+    <a href="index.html" class="bmb-brand"><img src="bmb-logo-sm.jpg" alt="Book My Band"></a>
+    <ul><li><a href="index.html">Accueil</a></li><li><a href="artistes.html">Nos artistes</a></li><li><a href="index.html#comment">Comment ça marche</a></li><li><a href="contact.html" class="on">Contact</a></li></ul>
+    <a href="contact.html" class="bmb-cta">Réserver un artiste</a>
+    <button class="bmb-burger" type="button" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<section class="wrap" style="max-width:860px;">
+  <span class="kicker">Contact</span>
+  <h1 class="sec-title">Réservez <span class="grad-text">votre artiste</span></h1>
+  <p class="lead">Dites-nous en plus sur votre événement : nous revenons vers vous rapidement avec les disponibilités et un devis.</p>
+  <form id="f" class="form">
+    <div class="row"><label>Nom<input id="n" required></label><label>Email<input id="e" type="email" required></label></div>
+    <div class="row"><label>Téléphone<input id="t" type="tel"></label><label>Date de l'événement<input id="d" placeholder="ex. 15 juin 2027"></label></div>
+    <div class="row"><label>Artiste souhaité<select id="a"><option>Je ne sais pas encore</option><option>Cache Candy</option><option>The Best ABBA Tribute</option><option>Tribute Calogero</option><option>Panache</option><option>Alchimie</option><option>The Fine Allies</option><option>NooN Coverband</option><option>DJ Animation</option></select></label><label>Lieu (ville)<input id="l"></label></div>
+    <label>Votre message<textarea id="m" rows="6" placeholder="Type d'événement, nombre d'invités, horaires..."></textarea></label>
+    <button class="btn btn-grad" type="submit">Envoyer ma demande</button>
+    <input type="checkbox" id="hp" tabindex="-1" autocomplete="off" style="display:none">
+    <p class="msg" id="msg" role="status"></p>
+    <p class="note">Réponse sous 48 h. Vous pouvez aussi nous appeler au <a href="tel:+33631949653">+33 6 31 94 96 53</a>.</p>
+  </form>
+</section>
+<footer class="bmb-foot">
+  <div class="bmb-foot-in">
+    <img src="bmb-logo-sm.jpg" alt="Book My Band">
+    <div><h4>Book My Band</h4><a href="artistes.html">Nos artistes</a><a href="index.html#comment">Comment ça marche</a><a href="contact.html">Demander un devis</a></div>
+    <div><h4>Contact</h4><a href="tel:+33631949653">+33 6 31 94 96 53</a><a href="contact.html">Formulaire de contact</a></div>
+  </div>
+  <p class="bmb-legal">© 2026 Book My Band — Réservation d'artistes pour vos événements, partout en France · <a href="mentions-legales.html">Mentions légales</a></p>
+</footer>
+<script>
+var F=document.getElementById('f'),M=document.getElementById('msg'),B=F.querySelector('button');
+F.addEventListener('submit',function(ev){ev.preventDefault(); if(document.getElementById('hp').checked) return;
+ var v=function(i){return document.getElementById(i).value};
+ var data={access_key:'52b8cb1e-c8ef-4ed2-8893-1d3305299e16', subject:'Book My Band - demande de réservation ('+v('a')+')', from_name:'Site Book My Band',
+   'Nom':v('n'), email:v('e'), 'Téléphone':v('t'), 'Date':v('d'), 'Lieu':v('l'), 'Artiste':v('a'), 'Message':v('m')};
+ B.disabled=true; B.textContent='Envoi en cours…'; M.className='msg';
+ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+ .then(function(r){return r.json()}).then(function(j){ if(!j.success) throw 0;
+   F.reset(); M.className='msg ok'; M.textContent='Merci ! Votre demande a bien été envoyée, nous revenons vers vous très vite.'; })
+ .catch(function(){ M.className='msg ko'; M.textContent="Oups, l'envoi n'a pas abouti. Réessayez ou appelez-nous au +33 6 31 94 96 53."; })
+ .finally(function(){ B.disabled=false; B.textContent='Envoyer ma demande'; });
+});
+var q=new URLSearchParams(location.search).get('artiste'); if(q){var s=document.getElementById('a'); for(var i=0;i<s.options.length;i++) if(s.options[i].text===q) s.selectedIndex=i;}
+</script>
+</body>
+</html>
