@@ -219,5 +219,11 @@ F.addEventListener('submit',function(ev){ev.preventDefault(); if(document.getEle
 });
 var q=new URLSearchParams(location.search).get('artiste'); if(q){var s=document.getElementById('a'); for(var i=0;i<s.options.length;i++) if(s.options[i].text===q) s.selectedIndex=i;}
 </script>
+<script>
+(function(){
+  try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
+  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"contact",session_id:sid,site:"bmb"})}).catch(function(){});
+})();
+</script>
 </body>
 </html>
