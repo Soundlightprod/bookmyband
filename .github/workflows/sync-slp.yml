@@ -1,0 +1,40 @@
+name: Synchro artistes SLP -> Book My Band
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # toutes les heures
+  workflow_dispatch:        # lancement manuel depuis l'onglet Actions
+  repository_dispatch:
+    types: [slp-updated]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-slp
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Soundlightprod/Soundlightprod
+          path: _slp
+          fetch-depth: 1
+      - name: Générer les nouvelles fiches
+        run: python3 _sync/sync.py _slp .
+      - name: Publier
+        run: |
+          rm -rf _slp
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "bmb-sync"
+            git config user.email "actions@users.noreply.github.com"
+            git add -A
+            git commit -m "Synchro auto : nouveaux artistes SLP"
+            git push
+          else
+            echo "Rien de nouveau."
+          fi
