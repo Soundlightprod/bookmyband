@@ -15,6 +15,7 @@ Band, le script :
 Les fiches déjà présentes sur BMB ne sont jamais écrasées.
 Pour exclure un artiste, ajouter son slug dans _sync/exclude.txt.
 """
+from urllib.parse import quote
 import html as H, re, shutil, sys, datetime, pathlib
 
 SLP = pathlib.Path(sys.argv[1]).resolve()
@@ -117,7 +118,7 @@ def build_page(a):
     content = re.sub(r'[\w.+-]+@soundlightprod\.fr', '', content)
 
     cta = between(tpl, '<section class="cta-band">', '<footer class="bmb-foot">')
-    cta = cta.replace('Tribute%20Calogero', H.escape(name).replace(' ', '%20')).replace('Tribute Calogero', name)
+    cta = cta.replace('Tribute%20Calogero', quote(name)).replace('Tribute Calogero', H.escape(name))
 
     footer = between(tpl, '<footer class="bmb-foot">', '</footer>') + '</footer>\n'
 
