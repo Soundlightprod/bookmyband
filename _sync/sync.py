@@ -196,12 +196,48 @@ def update_sitemap(a):
     write(f, h.replace('</urlset>', line + '</urlset>'))
 
 
+def add_names(a):
+    """Ajoute l'artiste au bandeau défilant (accueil, catalogue) et à la liste du formulaire de contact."""
+    name = H.escape(a['name'])
+    cat = BMB / 'artistes.html'
+    if cat.exists():  # nom tel qu'affiché sur BMB (peut différer de SLP, ex. « NooN Coverband »)
+        m = re.search(rf'<a class="pass" href="{re.escape(a["slug"])}\.html".*?<h3>(.*?)</h3>', read(cat), re.S)
+        if m:
+            name = m.group(1)
+    for fname in ('index.html', 'artistes.html'):
+        f = BMB / fname
+        if not f.exists():
+            continue
+        h = read(f)
+        m = re.search(r'(<div class="trk">)(.*?)(</div>)', h, re.S)
+        if not m:
+            continue
+        names = list(dict.fromkeys(re.findall(r'<span class="[og]">(.*?)</span>', m.group(2))))
+        if name in names:
+            continue
+        names.append(name)
+        one = ''.join(f'<span class="{"o" if i % 2 == 0 else "g"}">{n}</span><em>★</em>' for i, n in enumerate(names))
+        h = h[:m.start(2)] + one + one + h[m.end(2):]
+        write(f, h)
+    f = BMB / 'contact.html'
+    if f.exists():
+        h = read(f)
+        m = re.search(r'<select[^>]*>(?:(?!</select>).)*Je ne sais pas encore.*?</select>', h, re.S)
+        if m and f'<option>{name}</option>' not in m.group(0):
+            sel = m.group(0).replace('</select>', f'<option>{name}</option></select>')
+            write(f, h[:m.start()] + sel + h[m.end():])
+
+
 def main():
     added = []
     for a in slp_artists():
-        if a['slug'] in EXCLUDE or (BMB / f"{a['slug']}.html").exists():
+        if a['slug'] in EXCLUDE:
+            continue
+        if (BMB / f"{a['slug']}.html").exists():
+            add_names(a)
             continue
         build_page(a)
+        add_names(a)
         add_card(BMB / 'artistes.html', a)
         add_card(BMB / 'index.html', a)
         update_home(a)
