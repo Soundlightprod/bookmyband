@@ -2,21 +2,18 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panache — revue cabaret itinérante à réserver (plumes, french cancan) | Book My Band</title>
-<meta name="description" content="Réservez Panache, revue de cabaret de 4 à 8 artistes : plumes, strass, chant live et french cancan pour vos galas, casinos, soirées d'entreprise et événements privés.">
-<link rel="canonical" href="https://bookmyband.fr/panache">
+<title>Bim Bam Boom — artiste à réserver | Book My Band</title>
+<meta name="description" content="Bim Bam Boom, revue de cabaret itinérante diffusée par Book My Band : plumes, strass et french cancan pour vos galas, soirées d&#x27;entreprise et événements privés.">
+<link rel="canonical" href="https://bookmyband.fr/bim-bam-boom">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0a0a0a">
 <meta property="og:site_name" content="Book My Band"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website">
-<meta property="og:title" content="Panache — revue cabaret itinérante à réserver (plumes, french cancan) | Book My Band"><meta property="og:description" content="Réservez Panache, revue de cabaret de 4 à 8 artistes : plumes, strass, chant live et french cancan pour vos galas, casinos, soirées d'entreprise et événements privés."><meta property="og:url" content="https://bookmyband.fr/panache"><meta property="og:image" content="https://bookmyband.fr/panache-video-photo.png">
+<meta property="og:title" content="Bim Bam Boom — artiste à réserver | Book My Band"><meta property="og:description" content="Bim Bam Boom, revue de cabaret itinérante diffusée par Book My Band : plumes, strass et french cancan pour vos galas, soirées d&#x27;entreprise et événements privés."><meta property="og:url" content="https://bookmyband.fr/bim-bam-boom"><meta property="og:image" content="https://bookmyband.fr/spectacle-cabaret-diffusion.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "PerformingGroup", "name": "Panache", "genre": "Cabaret", "description": "Réservez Panache, revue de cabaret de 4 à 8 artistes : plumes, strass, chant live et french cancan pour vos galas, casinos, soirées d'entreprise et événements privés.", "url": "https://bookmyband.fr/panache", "image": "https://bookmyband.fr/panache-video-photo.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://bookmyband.fr/"}, {"@type": "ListItem", "position": 2, "name": "Nos artistes", "item": "https://bookmyband.fr/artistes"}, {"@type": "ListItem", "position": 3, "name": "Panache", "item": "https://bookmyband.fr/panache"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MusicGroup", "name": "Bim Bam Boom", "description": "Bim Bam Boom, revue de cabaret itinérante diffusée par Book My Band : plumes, strass et french cancan pour vos galas, soirées d'entreprise et événements privés.", "url": "https://bookmyband.fr/bim-bam-boom", "image": "https://bookmyband.fr/spectacle-cabaret-diffusion.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://bookmyband.fr/"}, {"@type": "ListItem", "position": 2, "name": "Nos artistes", "item": "https://bookmyband.fr/artistes"}, {"@type": "ListItem", "position": 3, "name": "Bim Bam Boom", "item": "https://bookmyband.fr/bim-bam-boom"}]}]}</script>
 <link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:'Manrope',sans-serif; line-height:1.6; overflow-x:hidden;}
-
   :root{
     --ink: #0c0b10; --ink-2: #17151e;
     --paper: #f5f2ec; --muted: #9a93a6;
@@ -148,8 +145,21 @@
   .lightbox-overlay img{max-width:100%; max-height:100%; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,0.6);}
   .event-card img, .actu-item img{cursor:zoom-in;}
 
-  
-
+  /* Menu mobile (burger) */
+  .burger{display:none; background:none; border:1px solid var(--line); border-radius:8px; width:42px; height:42px; margin-left:10px; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px; padding:0;}
+  .burger span{display:block; width:20px; height:2px; background:var(--paper); border-radius:2px; transition:transform .25s ease, opacity .25s ease;}
+  header.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  header.menu-open .burger span:nth-child(2){opacity:0;}
+  header.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  @media (max-width:960px){
+    .burger{display:flex;}
+    .nav-wrap{position:relative; flex-wrap:nowrap;}
+    .nav-wrap .lang-switch{margin-left:auto;}
+    header.menu-open nav ul{display:flex; flex-direction:column; gap:0; position:absolute; top:100%; left:0; right:0; background:#0c0b10 !important; border-bottom:1px solid var(--line); padding:8px 24px 18px; z-index:60; box-shadow:0 18px 40px rgba(0,0,0,.45);}
+    header.menu-open nav li{border-bottom:1px solid var(--line);}
+    header.menu-open nav li:last-child{border-bottom:0;}
+    header.menu-open nav a{display:block; padding:14px 2px; font-size:1rem;}
+  }
   .page-hero{position:relative; overflow:hidden;}
   .bmb-hero-img{position:absolute; top:0; right:0; bottom:0; width:min(48vw,640px); z-index:0; pointer-events:none;
      -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%); mask-image:linear-gradient(90deg,transparent 0%,#000 45%);}
@@ -212,11 +222,11 @@
 
 <section class="page-hero">
   <div class="hero-blocks" aria-hidden="true"><div class="hb hb1"></div><div class="hb hb2"></div></div>
-  <div class="bmb-hero-img" aria-hidden="true"><img src="panache-video-photo.png" alt=""></div>
+  <div class="bmb-hero-img" aria-hidden="true"><img src="spectacle-cabaret-diffusion.jpg" alt="" style="object-position:center 30%"></div>
   <div class="page-hero-inner">
     <span class="breadcrumb"><a href="artistes.html#cabaret">← Spectacles Cabaret</a></span>
     <span class="label">Revue de Cabaret</span>
-    <h1>Panache</h1>
+    <h1>Bim Bam Boom</h1>
     <p>Une revue de cabaret itinérante mêlant tableaux dynamiques, chant en live, plumes et strass — pour illuminer vos galas, soirées d'entreprise et événements privés.</p>
     <div class="tags">
       <span class="tag">Galas & soirées de prestige</span>
@@ -241,12 +251,12 @@
   <div class="wrap tight narrow">
     <div class="bio-wrap">
       <div class="logo-frame">
-        <img src="panache-logo.png" alt="Panache — Revue à Plumes">
+        <img src="bim-bam-boom-logo.png" alt="Bim Bam Boom — Revue Cabaret">
       </div>
       <div class="bio-text">
-        <p>Panache est une revue de cabaret haut de gamme, pensée pour se déplacer partout en France. Sur un format modulable de 4 à 8 artistes, elle enchaîne des tableaux dynamiques, colorés et innovants, portés par du chant en live.</p>
+        <p>Bim Bam Boom est une revue de cabaret haut de gamme, pensée pour se déplacer partout en France. Sur un format modulable de 4 à 8 artistes, elle enchaîne des tableaux dynamiques, colorés et innovants, portés par du chant en live.</p>
         <p>Plumes, strass et french cancan composent l'univers visuel du spectacle, dans le plus pur esprit des revues parisiennes de music-hall, jusqu'à un final tricolore qui embrase la salle.</p>
-        <p>Représentée par Book My Band, la revue s'adapte à la durée et au format de votre événement — d'un showcase de 30 minutes à une grande soirée de 1h30 — et se déplace avec sa propre équipe technique son et lumière.</p>
+        <p>Diffusée par Book My Band, la revue s'adapte à la durée et au format de votre événement — d'un showcase de 30 minutes à une grande soirée de 1h30 — et se déplace avec sa propre équipe technique son et lumière.</p>
       </div>
     </div>
   </div>
@@ -272,11 +282,12 @@
 <section>
   <div class="wrap tight">
     <div class="banner-photo has-image">
-      <img src="panache-video-photo.png" alt="Panache — artiste en costume de scène" loading="lazy">
+      <img src="spectacle-cabaret-diffusion.jpg" alt="Bim Bam Boom — artiste en costume de scène" loading="lazy">
     </div>
   </div>
 </section>
 
+<!-- VIDEO-BBB : à activer dès réception de la vidéo
 <section>
   <div class="wrap tight narrow">
     <div class="section-head">
@@ -284,10 +295,11 @@
       <h2>La revue en tournée</h2>
     </div>
     <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/p_2l2p1K6k4" title="Panache — Cabaret itinérant (vidéo)" style="position:absolute; inset:0; width:100%; height:100%; border:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Bim Bam Boom — Cabaret itinérant (vidéo)" style="position:absolute; inset:0; width:100%; height:100%; border:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
+-->
 
 <section>
   <div class="wrap tight">
@@ -318,11 +330,11 @@
 
 <section class="cta-band">
   <div class="wrap tight">
-    <span class="label">Envie de programmer Panache ?</span>
-    <h2>Réservez cette revue<br>pour votre événement</h2>
-    <p>Book My Band représente ce spectacle et coordonne toute la logistique de votre événement.</p>
+    <span class="label">Envie de les programmer ?</span>
+    <h2>Réservez<br>Bim Bam Boom</h2>
+    <p>Book My Band représente cet artiste et coordonne toute la logistique de votre événement.</p>
     <div class="cta-row">
-      <a href="contact.html?artiste=Panache" class="btn btn-primary">Demander un devis</a>
+      <a href="contact.html?artiste=Bim%20Bam%20Boom" class="btn btn-primary">Demander un devis</a>
       <a href="tel:+33631949653" class="btn btn-ghost">+33 6 31 94 96 53</a>
     </div>
   </div>
@@ -342,7 +354,7 @@
 <script>
 (function(){
   const API_BASE = "https://slp-api.raspy-silence-d4c7.workers.dev";
-  const ARTIST_SLUG = "panache";
+  const ARTIST_SLUG = "bim-bam-boom";
 
   function formatDate(iso){
     try {
@@ -390,8 +402,26 @@
 </script>
 <script>
 (function(){
+  window.openLightbox = function(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxOverlay').classList.add('open');
+  };
+  window.closeLightbox = function(){
+    document.getElementById('lightboxOverlay').classList.remove('open');
+  };
+  document.addEventListener('click', function(e){
+    const img = e.target.closest('.event-card img, .actu-item img');
+    if (!img) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openLightbox(img.src);
+  });
+})();
+</script>
+<script>
+(function(){
   try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
-  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"panache",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
+  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"bim-bam-boom",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
 })();
 </script>
 </body>
