@@ -98,6 +98,9 @@ def build_page(a):
 
     # CSS : styles de la fiche SLP + surcouche BMB du gabarit
     slp_css = between(src, '<style>', '</style>')[len('<style>'):]
+    # polices de la charte SLP -> polices chargées par Book My Band
+    for a, b in (("'League Spartan'", "'Space Grotesk'"), ("'Instrument Sans'", "'Manrope'"), ("'DM Mono'", "'JetBrains Mono'")):
+        slp_css = slp_css.replace(a, b)
     tpl_css = between(tpl, '<style>', '</style>')
     bmb_css = tpl_css[tpl_css.index('  .page-hero{position:relative; overflow:hidden;}'):]
     style = '<style>' + slp_css + bmb_css + '</style>\n</head>\n<body>\n'
@@ -112,7 +115,7 @@ def build_page(a):
     content = re.sub(r'href="(?:tributes|groupes-de-reprises|cabaret|jazz-soul-funk|pop-francaise|dj)\.html"',
                      f'href="artistes.html#{a["cat"]}"', content)
     content = content.replace('Exclusivité SLP', 'Exclusivité Book My Band')
-    content = re.sub(r'<img src="logo\.png"[^>]*>', '', content)
+    content = re.sub(r'<img src="(?:logo|slp-sigle)\.png"[^>]*>', '', content)
     content = re.sub(r'\bSLP\b', 'Book My Band', content)
     content = re.sub(r'<a [^>]*href="mailto:[^"]*"[^>]*>.*?</a>', '', content, flags=re.S)
     content = re.sub(r'[\w.+-]+@soundlightprod\.fr', '', content)
