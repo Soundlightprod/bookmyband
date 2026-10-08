@@ -60,8 +60,8 @@ def slp_artists():
         for m in re.finditer(r'href="([a-z0-9\-]+)\.html" class="discover-btn"', h):
             slug = m.group(1)
             card = block_around(h, m.start())
-            img = re.search(r'<img src="([^"]+)"', card).group(1)
-            label = re.search(r'<span class="label">(.*?)</span>', card)
+            img = re.search(r'<img (?:class="ph" )?src="([^"]+)"', card).group(1)
+            label = re.search(r'<span class="(?:label|pill)">(.*?)</span>', card)
             name = strip_tags(re.search(r'<h3>(.*?)</h3>', card).group(1))
             desc = strip_tags(re.search(r'<p>(.*?)</p>', card, re.S).group(1))
             hm = re.search(rf'<a class="artist-card" href="{slug}\.html".*?<p>(.*?)</p>', home, re.S)
