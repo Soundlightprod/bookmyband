@@ -4,3 +4,6 @@ _src
 _sync
 .github
 _slp
+.git
+.git/**
+_redirects.bak
