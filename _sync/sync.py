@@ -20,7 +20,7 @@ import html as H, re, shutil, sys, datetime, pathlib
 
 SLP = pathlib.Path(sys.argv[1]).resolve()
 BMB = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else pathlib.Path(__file__).resolve().parent.parent).resolve()
-TEMPLATE = BMB / 'calo-2-0.html'          # fiche BMB servant de gabarit (en-tête, CSS BMB, pied de page)
+TEMPLATE = BMB / 'tribute-calogero.html'          # fiche BMB servant de gabarit (en-tête, CSS BMB, pied de page)
 CATS = {'groupes-de-reprises': 'reprises', 'tributes': 'tributes', 'cabaret': 'cabaret',
         'jazz-soul-funk': 'jazz', 'pop-francaise': 'pop', 'dj': 'dj'}
 EXCLUDE = {l.strip() for l in (BMB / '_sync' / 'exclude.txt').read_text(encoding='utf-8').splitlines()
@@ -87,7 +87,7 @@ def build_page(a):
     head_tpl = re.sub(r'<title>.*?</title>', f'<title>{H.escape(title)}</title>', head_tpl)
     head_tpl = re.sub(r'(<meta (?:name|property)="(?:description|og:description)" content=")[^"]*', lambda m: m.group(1) + H.escape(desc, quote=True), head_tpl)
     head_tpl = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1) + H.escape(title, quote=True), head_tpl)
-    head_tpl = re.sub(r'https://bookmyband\.fr/calo-2-0', url, head_tpl)
+    head_tpl = re.sub(r'https://bookmyband\.fr/tribute-calogero', url, head_tpl)
     head_tpl = head_tpl.replace('https://bookmyband.fr/calo2-0-affiche.jpg', img_abs)
     head_tpl = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda _: '<script type="application/ld+json">' + (
         '{"@context": "https://schema.org", "@graph": [{"@type": "MusicGroup", "name": %s, "description": %s, "url": "%s", "image": "%s"}, '

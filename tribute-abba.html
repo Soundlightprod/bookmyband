@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tribute Calogero live — concert à réserver | Book My Band</title>
-<meta name="description" content="Réservez le Tribute Calogero en quatuor live : 2 h de concert pour vos festivals, concerts en ville, galas et programmations culturelles. Devis gratuit.">
-<link rel="canonical" href="https://bookmyband.fr/calo-2-0">
+<title>Tribute ABBA live — concert à réserver | Book My Band</title>
+<meta name="description" content="Réservez Tribute ABBA : groupe live complet, 2 chanteuses, 2 h de tubes d'ABBA pour vos festivals, galas, concerts et programmations culturelles. Devis gratuit.">
+<link rel="canonical" href="https://bookmyband.fr/tribute-abba">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0a0a0a">
 <meta property="og:site_name" content="Book My Band"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website">
-<meta property="og:title" content="Tribute Calogero live — concert à réserver | Book My Band"><meta property="og:description" content="Réservez le Tribute Calogero en quatuor live : 2 h de concert pour vos festivals, concerts en ville, galas et programmations culturelles. Devis gratuit."><meta property="og:url" content="https://bookmyband.fr/calo-2-0"><meta property="og:image" content="https://bookmyband.fr/calo-photo-1.jpg">
+<meta property="og:title" content="Tribute ABBA live — concert à réserver | Book My Band"><meta property="og:description" content="Réservez Tribute ABBA : groupe live complet, 2 chanteuses, 2 h de tubes d'ABBA pour vos festivals, galas, concerts et programmations culturelles. Devis gratuit."><meta property="og:url" content="https://bookmyband.fr/tribute-abba"><meta property="og:image" content="https://bookmyband.fr/abba-photo-1.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MusicGroup", "name": "Tribute Calogero", "genre": "Tribute Calogero", "description": "Réservez le Tribute Calogero en quatuor live : 2 h de concert pour vos festivals, concerts en ville, galas et programmations culturelles. Devis gratuit.", "url": "https://bookmyband.fr/calo-2-0", "image": "https://bookmyband.fr/calo-photo-1.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://bookmyband.fr/"}, {"@type": "ListItem", "position": 2, "name": "Nos artistes", "item": "https://bookmyband.fr/artistes"}, {"@type": "ListItem", "position": 3, "name": "Tribute Calogero", "item": "https://bookmyband.fr/calo-2-0"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MusicGroup", "name": "Tribute ABBA", "genre": "Tribute ABBA", "description": "Réservez Tribute ABBA : groupe live complet, 2 chanteuses, 2 h de tubes d'ABBA pour vos festivals, galas, concerts et programmations culturelles. Devis gratuit.", "url": "https://bookmyband.fr/tribute-abba", "image": "https://bookmyband.fr/abba-photo-1.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://bookmyband.fr/"}, {"@type": "ListItem", "position": 2, "name": "Nos artistes", "item": "https://bookmyband.fr/artistes"}, {"@type": "ListItem", "position": 3, "name": "Tribute ABBA", "item": "https://bookmyband.fr/tribute-abba"}]}]}</script>
 <link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -47,14 +47,16 @@
   .hb2{width:40vw; height:40vw; background:radial-gradient(circle, var(--amber), transparent 70%); top:-10vw; right:-10vw;}
   .page-hero-inner{position:relative; z-index:2; max-width:800px;}
 
-  /* Silhouette néon de l'artiste (tirée de sa photo) */
-  .hero-art{position:absolute; right:clamp(8px,5vw,90px); bottom:0; height:min(92%,500px); width:min(48vw,620px); z-index:1; pointer-events:none;}
-  .hero-art img{position:absolute; right:0; bottom:0; max-height:100%; max-width:100%; filter:drop-shadow(0 0 12px var(--glow)); animation:artSway 6s ease-in-out infinite; transform-origin:bottom center;}
-  .hero-art .spark{position:absolute; color:#fff; font-size:16px; line-height:1; text-shadow:0 0 10px #fff, 0 0 20px var(--glow); animation:twinkle 2.4s ease-in-out infinite;}
-  .hero-art .s1{right:8%; top:4%;} .hero-art .s2{right:62%; top:18%; font-size:11px; animation-delay:-.8s;} .hero-art .s3{right:-2%; top:38%; font-size:13px; animation-delay:-1.6s;}
-  @keyframes artSway{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-.8deg)}}
+  /* Silhouettes néon des chanteuses (tirées de la photo du groupe) */
+  .hero-divas{position:absolute; right:clamp(8px,5vw,90px); bottom:0; height:min(96%,520px); aspect-ratio:320/298; z-index:1; pointer-events:none;}
+  .hero-divas img{position:absolute; display:block;}
+  .hero-divas .d1{left:0; top:31.2%; width:54.1%; z-index:2; filter:drop-shadow(0 0 2px #0c0b10) drop-shadow(0 0 12px rgba(255,79,216,.7)); animation:divaSway 5s ease-in-out infinite;}
+  .hero-divas .d2{left:40.9%; top:0; width:59.1%; filter:drop-shadow(0 0 12px rgba(255,210,79,.65)); animation:divaSway 5s ease-in-out -2.5s infinite;}
+  .hero-divas .spark{position:absolute; color:#fff; font-size:18px; line-height:1; text-shadow:0 0 10px #fff, 0 0 20px #ff4fd8; animation:twinkle 2.4s ease-in-out infinite;}
+  .hero-divas .s1{left:88%; top:2%;} .hero-divas .s2{left:30%; top:12%; font-size:12px; animation-delay:-.8s;} .hero-divas .s3{left:100%; top:30%; font-size:14px; animation-delay:-1.6s;} .hero-divas .s4{left:6%; top:24%; font-size:10px; animation-delay:-1.2s;}
+  @keyframes divaSway{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-1deg)}}
   @keyframes twinkle{0%,100%{opacity:.15; transform:scale(.6)}50%{opacity:1; transform:scale(1.15)}}
-  @media (max-width:900px){ .hero-art{opacity:.28; width:70vw; right:-30px;} }
+  @media (max-width:900px){ .hero-divas{opacity:.28; height:88%; right:-40px;} }
   .breadcrumb{display:block; margin-bottom:20px; color:var(--muted); font-size:0.85rem;}
   .breadcrumb a{color:var(--muted); text-decoration:none;}
   .breadcrumb a:hover{color:var(--paper);}
@@ -77,12 +79,6 @@
   .logo-frame img{max-width:100%; max-height:100%; object-fit:contain; border-radius:0;}
   .bio-text p{color:var(--muted); font-size:1.02rem; margin-bottom:16px;}
   .bio-text p:last-child{margin-bottom:0;}
-
-  .members-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px;}
-  .member-card{background:var(--ink-2); border:1px solid var(--line); border-radius:14px; padding:20px 22px;}
-  .member-card .name{font-family:'Space Grotesk', sans-serif; font-weight:700; color:var(--paper); font-size:1.02rem; margin-bottom:4px;}
-  .member-card .role{color:var(--amber); font-family:'JetBrains Mono', monospace; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px; display:block;}
-  .member-card p{color:var(--muted); font-size:0.86rem; margin:0;}
 
   .banner-photo{
     background:repeating-linear-gradient(45deg, #14121a, #14121a 10px, #191621 10px, #191621 20px);
@@ -214,12 +210,12 @@
 
 <section class="page-hero">
   <div class="hero-blocks" aria-hidden="true"><div class="hb hb1"></div><div class="hb hb2"></div></div>
-  <div class="bmb-hero-img" aria-hidden="true"><img src="calo-photo-1.jpg" alt="" style="object-position:center 40%"></div>
+  <div class="bmb-hero-img" aria-hidden="true"><img src="abba-photo-1.jpg" alt="" style="object-position:center 45%"></div>
   <div class="page-hero-inner">
     <span class="breadcrumb"><a href="artistes.html#tributes">← Tributes</a></span>
-    <span class="label">Tribute Calogero</span>
-    <h1>Tribute Calogero</h1>
-    <p>L'hommage à Calogero — quatre musiciens live qui revisitent les plus grands titres de son répertoire, pour une soirée de partage et de nostalgie.</p>
+    <span class="label">Tribute ABBA</span>
+    <h1>Tribute ABBA</h1>
+    <p>Un groupe live complet qui fait revivre les plus grands tubes d'ABBA — deux chanteuses d'exception et des musiciens chevronnés, pour une soirée de nostalgie et de bonne humeur.</p>
   </div>
 </section>
 
@@ -237,16 +233,16 @@
   <div class="wrap tight narrow">
     <div class="bio-wrap">
       <div class="logo-frame" style="padding:0; overflow:hidden;">
-        <img src="calo-photo-4.jpg" alt="Tribute Calogero, sur scène" style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
+        <img src="abba-photo-3.jpg" alt="Tribute ABBA, sur scène" style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
       </div>
       <div class="bio-text">
-        <p>Étoile rouge, pickguard miroir, manche à l'envers… Cet instrument dit quelque chose à tous les fans de Calogero. Le fondateur du groupe, l'un de ses fidèles admirateurs, s'est lancé le pari de le customiser lui-même : en 2024 naît ce tribute, fruit d'un coup de cœur découvert sur scène en 2007 — la soirée qui l'a décidé à faire de la musique son métier.</p><p>Accompagné de trois musiciens talentueux, le groupe revisite les plus grands standards du répertoire de Calogero en s'inspirant de la formule à quatre des tournées « Les Feux d'Artifice Tour » (2014) et « Liberté Chérie Tour » (2018). Artiste incontournable de la variété française, ses chansons bercent un large public : « Yalla », « Je joue de la musique », « En apesanteur », « Voler de nuit », « C'est dit »…</p><p>Peu importe d'où vous venez ou votre âge : embarquez pour 2 heures de concert avec Tribute Calogero et laissez la magie opérer.</p>
+        <p>Dans l'histoire de la pop, ABBA occupe une place à part. Qui ne se souvient pas des tubes intemporels « Dancing Queen », « Waterloo », « Mamma Mia », « Voulez-Vous » ou « The Winner Takes It All » ? Avec plus de 200 millions d'albums vendus (370 millions de disques au total), ABBA reste l'un des groupes les plus vendus de l'histoire de la musique.</p>
+        <p>Tribute ABBA est porté par deux chanteuses solistes au sommet de leur art et des musiciens qui jouent entièrement en live — une exigence rare dans l'univers des tributes, et l'une des clés de leur succès. Le groupe s'est produit devant plus de 15 000 spectateurs à Helmond (Kasteeltuinconcerten) et au festival TT Assen, ainsi qu'à l'étranger : Russie, Roumanie, Liechtenstein.</p><p>Salué par la presse néerlandaise et internationale comme l'un des meilleurs hommages à ABBA au monde, le groupe promet une soirée où toute la salle chante et danse sur les plus grands tubes du quatuor suédois.</p>
         <p>Le concert dure 2 heures, entièrement en live, avec sonorisation, lumière et scénographie prises en charge par Book My Band selon la formule choisie. Une soirée de nostalgie et de bonne humeur, pour petits et grands !</p>
       </div>
     </div>
   </div>
 </section>
-
 
 <section>
   <div class="wrap tight narrow">
@@ -255,18 +251,14 @@
       <h2>Le groupe</h2>
     </div>
     <div class="photo-grid">
-      <a href="calo-photo-1.jpg"><img src="calo-photo-1.jpg" alt="Tribute Calogero — photo 1" loading="lazy"></a>
-      <a href="calo-photo-2.jpg"><img src="calo-photo-2.jpg" alt="Tribute Calogero — photo 2" loading="lazy"></a>
-      <a href="calo-photo-3.jpg"><img src="calo-photo-3.jpg" alt="Tribute Calogero — photo 3" loading="lazy"></a>
-      <a href="calo-photo-4.jpg"><img src="calo-photo-4.jpg" alt="Tribute Calogero — photo 4" loading="lazy"></a>
-      <a href="calo-photo-5.jpg"><img src="calo-photo-5.jpg" alt="Tribute Calogero — photo 5" loading="lazy"></a>
-      <a href="calo-photo-6.jpg"><img src="calo-photo-6.jpg" alt="Tribute Calogero — photo 6" loading="lazy" style="object-position:center 25%;"></a>
-      <a href="calo-photo-7.jpg"><img src="calo-photo-7.jpg" alt="Tribute Calogero — photo 7" loading="lazy"></a>
-      <a href="calo-photo-8.jpg"><img src="calo-photo-8.jpg" alt="Tribute Calogero — photo 8" loading="lazy" style="object-position:center 25%;"></a>
-      <a href="calo-photo-9.jpg"><img src="calo-photo-9.jpg" alt="Tribute Calogero — photo 9" loading="lazy"></a>
-      <a href="calo-photo-10.jpg"><img src="calo-photo-10.jpg" alt="Tribute Calogero — photo 10" loading="lazy"></a>
-      <a href="calo-photo-11.jpg"><img src="calo-photo-11.jpg" alt="Tribute Calogero — photo 11" loading="lazy" style="object-position:center 25%;"></a>
-      <a href="calo-photo-12.jpg"><img src="calo-photo-12.jpg" alt="Tribute Calogero — photo 12" loading="lazy"></a>
+      <a href="abba-photo-1.jpg"><img src="abba-photo-1.jpg" alt="Tribute ABBA — photo 1" loading="lazy"></a>
+      <a href="abba-photo-2.jpg"><img src="abba-photo-2.jpg" alt="Tribute ABBA — photo 2" loading="lazy"></a>
+      <a href="abba-photo-3.jpg"><img src="abba-photo-3.jpg" alt="Tribute ABBA — photo 3" loading="lazy"></a>
+      <a href="abba-photo-4.jpg"><img src="abba-photo-4.jpg" alt="Tribute ABBA — photo 4" loading="lazy"></a>
+      <a href="abba-photo-5.jpg"><img src="abba-photo-5.jpg" alt="Tribute ABBA — photo 5" loading="lazy"></a>
+      <a href="abba-photo-6.jpg"><img src="abba-photo-6.jpg" alt="Tribute ABBA — photo 6" loading="lazy"></a>
+      <a href="abba-photo-7.jpg"><img src="abba-photo-7.jpg" alt="Tribute ABBA — photo 7" loading="lazy"></a>
+      <a href="abba-photo-8.jpg"><img src="abba-photo-8.jpg" alt="Tribute ABBA — photo 8" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -275,15 +267,10 @@
   <div class="wrap tight narrow">
     <div class="section-head">
       <span class="label">Voir</span>
-      <h2>Les teasers</h2>
+      <h2>Le teaser</h2>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
-      <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden;">
-        <iframe src="https://www.youtube.com/embed/zY5Zkr5o0Ek" title="Tribute Calogero — Teaser 1" style="position:absolute; inset:0; width:100%; height:100%; border:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden;">
-        <iframe src="https://www.youtube.com/embed/oxmoT3FtSfs?start=27" title="Tribute Calogero — Teaser 2" style="position:absolute; inset:0; width:100%; height:100%; border:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
+    <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:14px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/odv7OehzC1A" title="Tribute ABBA — Teaser" style="position:absolute; inset:0; width:100%; height:100%; border:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -291,10 +278,10 @@
 <section>
   <div class="wrap tight">
     <div class="info-grid">
-      <div class="info-item"><span class="mark">→</span><p>4 musiciens live — basse, guitare, claviers, batterie</p></div>
+      <div class="info-item"><span class="mark">→</span><p>Groupe live complet — chant, musiciens, ingénieur du son</p></div>
       <div class="info-item"><span class="mark">→</span><p>2 heures de concert live</p></div>
-      <div class="info-item"><span class="mark">→</span><p>Formule inspirée des tournées de Calogero (2014, 2018)</p></div>
-      <div class="info-item"><span class="mark">→</span><p>Musiciens professionnels, plusieurs décennies d'expérience scène</p></div>
+      <div class="info-item"><span class="mark">→</span><p>Plus de 15 000 spectateurs à Helmond et TT Assen</p></div>
+      <div class="info-item"><span class="mark">→</span><p>Reconnu par la presse néerlandaise et internationale</p></div>
     </div>
   </div>
 </section>
@@ -302,10 +289,10 @@
 <section class="cta-band">
   <div class="wrap tight">
     <span class="label">Envie de les programmer ?</span>
-    <h2>Réservez<br>Tribute Calogero</h2>
+    <h2>Réservez<br>Tribute ABBA</h2>
     <p>Book My Band représente cet artiste et coordonne toute la logistique de votre événement.</p>
     <div class="cta-row">
-      <a href="contact.html?artiste=Tribute%20Calogero" class="btn btn-primary">Demander un devis</a>
+      <a href="contact.html?artiste=The%20Best%20ABBA%20Tribute" class="btn btn-primary">Demander un devis</a>
       <a href="tel:+33631949653" class="btn btn-ghost">+33 6 31 94 96 53</a>
     </div>
   </div>
@@ -325,7 +312,7 @@
 <script>
 (function(){
   const API_BASE = "https://slp-api.raspy-silence-d4c7.workers.dev";
-  const ARTIST_SLUG = "calo2-0";
+  const ARTIST_SLUG = "the-best-abba-tribute";
 
   function formatDate(iso){
     try {
@@ -374,7 +361,7 @@
 <script>
 (function(){
   try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
-  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"calo-2-0",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
+  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"the-best-abba-tribute",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
 })();
 </script>
 </body>
