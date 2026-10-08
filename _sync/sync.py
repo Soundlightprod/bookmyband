@@ -99,8 +99,8 @@ def build_page(a):
     # CSS : styles de la fiche SLP + surcouche BMB du gabarit
     slp_css = between(src, '<style>', '</style>')[len('<style>'):]
     # polices de la charte SLP -> polices chargées par Book My Band
-    for a, b in (("'League Spartan'", "'Space Grotesk'"), ("'Instrument Sans'", "'Manrope'"), ("'DM Mono'", "'JetBrains Mono'")):
-        slp_css = slp_css.replace(a, b)
+    for f_slp, f_bmb in (("'League Spartan'", "'Space Grotesk'"), ("'Instrument Sans'", "'Manrope'"), ("'DM Mono'", "'JetBrains Mono'")):
+        slp_css = slp_css.replace(f_slp, f_bmb)
     tpl_css = between(tpl, '<style>', '</style>')
     bmb_css = tpl_css[tpl_css.index('  .page-hero{position:relative; overflow:hidden;}'):]
     style = '<style>' + slp_css + bmb_css + '</style>\n</head>\n<body>\n'
