@@ -440,7 +440,7 @@
 <script>
 (function(){
   try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
-  (function(){try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem("slp_notrack","1");if(/[?&]notrack=0/.test(location.search))localStorage.removeItem("slp_notrack");if(localStorage.getItem("slp_notrack"))return Promise.resolve();}catch(e){}return fetch.apply(window,arguments);})("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"bim-bam-boom",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
+  (function(){try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem("slp_notrack","1");if(/[?&]notrack=0/.test(location.search))localStorage.removeItem("slp_notrack");if(localStorage.getItem("slp_notrack"))return Promise.resolve();}catch(e){}return fetch.apply(window,arguments);})("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"bim-bam-boom",session_id:sid,site:"bmb",ref:(function(){try{var q=new URLSearchParams(location.search),s=q.get("utm_source")||(q.get("utm_medium")==="email"?"email":"");if(s){var c=(q.get("utm_campaign")||"").toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,50);return "https://emailing-"+s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")+(c?"."+c:"")+"/";}}catch(e){}return document.referrer;})()})}).catch(function(){});
 })();
 </script>
 </body>
