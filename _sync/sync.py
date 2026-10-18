@@ -57,14 +57,14 @@ def slp_artists():
         if not f.exists():
             continue
         h = read(f)
-        for m in re.finditer(r'href="([a-z0-9\-]+)\.html" class="discover-btn"', h):
+        for m in re.finditer(r'href="([a-z0-9\-]+)(?:\.html)?" class="discover-btn"', h):
             slug = m.group(1)
             card = block_around(h, m.start())
             img = re.search(r'<img (?:class="ph" )?src="([^"]+)"', card).group(1)
             label = re.search(r'<span class="(?:label|pill)">(.*?)</span>', card)
             name = strip_tags(re.search(r'<h3>(.*?)</h3>', card).group(1))
             desc = strip_tags(re.search(r'<p>(.*?)</p>', card, re.S).group(1))
-            hm = re.search(rf'<a class="artist-card" href="{slug}\.html".*?<p>(.*?)</p>', home, re.S)
+            hm = re.search(rf'<a class="artist-card" href="{slug}(?:\.html)?".*?<p>(.*?)</p>', home, re.S)
             short = strip_tags(hm.group(1)) if hm else desc
             out.append(dict(slug=slug, cat=cat, img=img, name=name, short=short, desc=desc,
                             label=strip_tags(label.group(1)) if label else name))
@@ -112,8 +112,8 @@ def build_page(a):
     content = re.sub(r'<div class="hero-art".*?</div>\s*', '', content, count=1, flags=re.S)
     content = content.replace('<div class="page-hero-inner">',
         f'<div class="bmb-hero-img" aria-hidden="true"><img src="{a["img"]}" alt="" style="object-position:center 30%"></div>\n  <div class="page-hero-inner">', 1)
-    content = re.sub(r'href="(?:tributes|groupes-de-reprises|cabaret|jazz-soul-funk|pop-francaise|dj)\.html"',
-                     f'href="artistes.html#{a["cat"]}"', content)
+    content = re.sub(r'href="(?:tributes|groupes-de-reprises|cabaret|jazz-soul-funk|pop-francaise|dj)(?:\.html)?"',
+                     f'href="artistes#{a["cat"]}"', content)
     content = content.replace('Exclusivité SLP', 'Exclusivité Book My Band')
     content = re.sub(r'<img src="(?:logo|slp-sigle)\.png"[^>]*>', '', content)
     content = re.sub(r'\bSLP\b', 'Book My Band', content)
@@ -152,14 +152,14 @@ def json_str(s):
 
 # ---------- 3. Cartes et index ----------
 def pass_card(a):
-    return (f'<a class="pass" href="{a["slug"]}.html" data-cat="{a["cat"]}"><div class="ph"><img src="{a["img"]}" alt="{H.escape(a["name"])}" loading="lazy" style="object-position:center 30%"></div>'
+    return (f'<a class="pass" href="{a["slug"]}" data-cat="{a["cat"]}"><div class="ph"><img src="{a["img"]}" alt="{H.escape(a["name"])}" loading="lazy" style="object-position:center 30%"></div>'
             f'<span class="tag">{H.escape(a["label"])}</span><span class="num">00</span><div class="stub"><h3>{H.escape(a["name"])}</h3>'
             f'<p>{H.escape(a["short"])}</p><div class="row"><span class="cta"><b>Voir la fiche</b> <i>→</i></span><span class="bar"></span></div></div></a>')
 
 
 def add_card(file, a):
     h = read(file)
-    if f'href="{a["slug"]}.html" data-cat' in h:
+    if f'href="{a["slug"]}" data-cat' in h or f'href="{a["slug"]}.html" data-cat' in h:
         return
     passes = list(re.finditer(r'[ \t]*<a class="pass"[^\n]*</a>\n', h))
     if not passes:
@@ -181,7 +181,7 @@ def update_home(a):
         s = re.sub(r'<span class="cnt">\d+</span>', f'<span class="cnt">{cnt:02d}</span>', s)
         s = re.sub(r'<span class="lbl">\d+ artistes? →</span>', f'<span class="lbl">{cnt} artiste{"s" if cnt > 1 else ""} →</span>', s)
         return s
-    h = re.sub(rf'<a class="cat" href="artistes\.html#{a["cat"]}">.*?</a>', fix, h, count=1, flags=re.S)
+    h = re.sub(rf'<a class="cat" href="artistes(?:\.html)?#{a["cat"]}">.*?</a>', fix, h, count=1, flags=re.S)
     if f'bookmyband.fr/{a["slug"]}"' not in h:
         m = re.search(r'("@type": "ItemList".*?"itemListElement": \[)(.*?)(\]\})', h, re.S)
         if m:
@@ -207,7 +207,7 @@ def add_names(a):
     name = H.escape(a['name'])
     cat = BMB / 'artistes.html'
     if cat.exists():  # nom tel qu'affiché sur BMB (peut différer de SLP, ex. « NooN Coverband »)
-        m = re.search(rf'<a class="pass" href="{re.escape(a["slug"])}\.html".*?<h3>(.*?)</h3>', read(cat), re.S)
+        m = re.search(rf'<a class="pass" href="{re.escape(a["slug"])}(?:\.html)?".*?<h3>(.*?)</h3>', read(cat), re.S)
         if m:
             name = m.group(1)
     for fname in ('index.html', 'artistes.html'):
