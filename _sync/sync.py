@@ -132,7 +132,10 @@ def build_page(a):
              '  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},'
              f'body:JSON.stringify({{artist_slug:"{a["slug"]}",session_id:sid,site:"bmb",ref:document.referrer}})}}).catch(function(){{}});\n}})();\n</script>')
 
-    page = head_tpl + style + header + content + cta + footer + '\n'.join(scripts) + '\n' + track + '\n</body>\n</html>\n'
+    # bloc de mise en page compacte commun à toutes les fiches (repris du gabarit)
+    compact = re.search(r'<style>\s*/\* artist-compact:start \*/.*?/\* artist-compact:end \*/\s*</style>', tpl, re.S)
+    compact = compact.group(0) + '\n' if compact else ''
+    page = head_tpl + style + header + content + cta + footer + '\n'.join(scripts) + '\n' + track + '\n' + compact + '</body>\n</html>\n'
     write(BMB / f"{a['slug']}.html", page)
 
     # Images locales référencées

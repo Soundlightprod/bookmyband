@@ -93,12 +93,6 @@
   .banner-photo .icon{font-size:2rem; margin-bottom:8px; opacity:0.6;}
   .banner-photo .txt{font-size:0.82rem; font-weight:500;}
 
-  .band-banner{width:100%; height:auto; display:block; border-radius:16px; margin-bottom:14px;}
-  .photo-grid{display:grid; grid-template-columns:1fr 1.4fr 0.9fr; grid-template-rows:1fr 1fr; gap:14px; height:520px;}
-  .photo-grid .ph-poster{grid-column:3; grid-row:1 / span 2; object-fit:contain; background:#0a0a0c; cursor:zoom-in;}
-  .photo-grid .ph1{grid-row:span 2; min-height:0;}
-  .photo-grid img{width:100%; height:100%; min-height:0; min-width:0; object-fit:cover; border-radius:16px; display:block;}
-  @media (max-width:700px){ .photo-grid{grid-template-columns:1fr; grid-template-rows:none; height:auto;} .photo-grid .ph1, .photo-grid .ph-poster{grid-row:auto; grid-column:auto;} .photo-grid img{aspect-ratio:4/3; height:auto;} .photo-grid .ph-poster{aspect-ratio:1365/2048;} }
 
   .venues-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px;}
   .venue-card{background:var(--ink-2); border:1px solid var(--line); border-radius:12px; padding:16px 20px; font-size:0.92rem; color:var(--paper);}
@@ -273,12 +267,11 @@
   </div>
 </section>
 
-
 <section>
   <div class="wrap tight narrow">
     <div class="section-head">
-      <span class="label">Teaser</span>
-      <h2>Voir le groupe en action</h2>
+      <span class="label">Voir</span>
+      <h2>La vidéo</h2>
     </div>
     <div class="video-wrap">
       <iframe src="https://www.youtube-nocookie.com/embed/QyU9YqfbgFM?rel=0&modestbranding=1&iv_load_policy=3" title="Alchimie — Teaser" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
@@ -287,19 +280,23 @@
 </section>
 
 <section>
-  <div class="wrap tight">
-    <img class="band-banner" src="alchimie-banniere.jpg" alt="Alchimie — show pop-rock énergique et authentique">
+  <div class="wrap tight narrow">
+    <div class="section-head">
+      <span class="label">En images</span>
+      <h2>Le groupe</h2>
+    </div>
     <div class="photo-grid">
-      <img class="ph1" src="alchimie-photo-1.jpg" alt="Alchimie en concert, prestation acoustique">
-      <img src="alchimie-photo-3.jpg" alt="Alchimie en concert, groupe complet sur scène">
-      <img src="alchimie-photo-2.jpg" alt="Alchimie en concert en extérieur">
-      <img class="ph-poster" src="alchimie-affiche.jpg" alt="Affiche Alchimie — show pop-rock" onclick="openLightbox(this.src)">
+      <a href="alchimie-banniere.jpg" class="wide"><img src="alchimie-banniere.jpg" alt="Alchimie — show pop-rock énergique et authentique" loading="lazy"></a>
+      <a href="alchimie-photo-1.jpg"><img src="alchimie-photo-1.jpg" alt="Alchimie en concert, prestation acoustique" loading="lazy"></a>
+      <a href="alchimie-photo-3.jpg"><img src="alchimie-photo-3.jpg" alt="Alchimie en concert, groupe complet sur scène" loading="lazy"></a>
+      <a href="alchimie-photo-2.jpg"><img src="alchimie-photo-2.jpg" alt="Alchimie en concert en extérieur" loading="lazy"></a>
+      <a href="alchimie-affiche.jpg" class="poster"><img src="alchimie-affiche.jpg" alt="Affiche Alchimie — show pop-rock" loading="lazy"></a>
     </div>
   </div>
 </section>
 
-<section class="info-strip">
-  <div class="wrap">
+<section>
+  <div class="wrap tight">
     <div class="info-grid">
       <div class="info-item"><span class="mark">→</span><p>Formé en 2018</p></div>
       <div class="info-item"><span class="mark">→</span><p>Disponible dans toute la France</p></div>
@@ -308,7 +305,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="cta-band">
   <div class="wrap tight">
@@ -399,4 +395,53 @@
 })();
 </script>
 </body>
+<style>
+/* artist-compact:start */
+  .page-hero{padding-top:96px; padding-bottom:34px;}
+  .page-hero h1{font-size:clamp(1.9rem,4vw,2.7rem); margin-bottom:12px;}
+  .page-hero p{font-size:1rem;}
+  .wrap.tight{padding-top:20px; padding-bottom:20px;}
+  .section-head{margin-bottom:18px;}
+  .section-head .label{margin-bottom:8px;}
+  .section-head h2{font-size:clamp(1.25rem,2.4vw,1.65rem);}
+  .bio-wrap{gap:34px !important; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) !important; align-items:center !important;}
+  .bio-wrap .logo-frame{aspect-ratio:4/3 !important; height:auto; max-height:300px; padding:18px; align-self:center !important;}
+  .bio-wrap .logo-frame.ph-frame{min-height:0 !important; padding:0 !important; position:relative;}
+  @media (max-width:700px){ .bio-wrap{grid-template-columns:1fr !important; gap:20px !important;} .bio-wrap .logo-frame{max-width:100%; max-height:240px;} .photo-grid{grid-template-columns:repeat(2,1fr);} .photo-grid a.wide{grid-column:span 2;} }
+  .bio-text p{font-size:.95rem; line-height:1.55; margin-bottom:12px;}
+  .members-grid{gap:12px;}
+  .video-wrap, .wrap.narrow > div[style*="aspect-ratio:16/9"]{max-width:640px;}
+  .video-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;}
+  .video-grid .video-wrap{max-width:none;}
+  .photo-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; height:auto;}
+  .photo-grid a{display:block; border-radius:12px; overflow:hidden; aspect-ratio:1/1; background:var(--ink-2); cursor:zoom-in;}
+  .photo-grid img{width:100%; height:100%; object-fit:cover; object-position:center 25%; display:block; transition:transform .4s ease;}
+  .photo-grid a:hover img{transform:scale(1.05);}
+  .photo-grid a.wide{grid-column:span 2; aspect-ratio:2/1;}
+  .photo-grid a.poster img{object-fit:contain; background:#0a0a0c;}
+  .banner-photo{max-width:380px !important; margin-left:auto !important; margin-right:auto !important;}
+  .single-photo{max-width:520px; margin-left:auto; margin-right:auto;}
+  .venue-card{padding:12px 16px;}
+  .info-grid{gap:18px;}
+  .cta-band .wrap.tight{padding-top:40px; padding-bottom:44px;}
+  .cta-band h2{font-size:clamp(1.6rem,3.6vw,2.3rem); margin-bottom:12px;}
+  .cta-band p{font-size:.98rem; margin-bottom:22px;}
+/* artist-compact:end */
+</style>
+<script>
+(function(){
+  window.openLightbox = function(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxOverlay').classList.add('open');
+  };
+  window.closeLightbox = function(){
+    document.getElementById('lightboxOverlay').classList.remove('open');
+  };
+})();
+</script>
+<script>
+document.querySelectorAll('.photo-grid a').forEach(function(a){
+  a.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); openLightbox(a.getAttribute('href')); });
+});
+</script>
 </html>
