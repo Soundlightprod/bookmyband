@@ -277,53 +277,78 @@
       <h2>Les vidéos</h2>
     </div>
     <style>
-  .retro-tv{position:relative; max-width:760px; margin:34px auto 0; padding-top:46px;}
-  .retro-tv::before,.retro-tv::after{content:""; position:absolute; top:4px; width:3px; height:64px; background:#9a9aa2; border-radius:2px; transform-origin:bottom center;}
-  .retro-tv::before{left:calc(50% - 8px); transform:rotate(-32deg);}
-  .retro-tv::after{left:calc(50% + 5px); transform:rotate(30deg);}
-  .tv-body{position:relative; background:linear-gradient(180deg,#7a4a28 0%,#5d3720 55%,#4a2b18 100%); border-radius:26px; padding:18px 18px 14px; box-shadow:0 22px 40px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.18), inset 0 -3px 0 rgba(0,0,0,.35);}
-  .tv-body::before{content:""; position:absolute; inset:0; border-radius:26px; background:repeating-linear-gradient(92deg,rgba(0,0,0,.06) 0 2px,rgba(255,255,255,.025) 2px 5px); pointer-events:none;}
-  .tv-bezel{position:relative; background:#15130f; border-radius:22px; padding:14px; box-shadow:inset 0 0 0 3px #0a0907, inset 0 4px 14px rgba(0,0,0,.8);}
-  .tv-screen{position:relative; width:100%; aspect-ratio:16/9; border-radius:7% / 11%; overflow:hidden; background:#000; box-shadow:0 0 0 2px #050505, 0 0 28px rgba(120,200,255,.18);}
-  .tv-screen iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
-  .tv-screen::after{content:""; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px), radial-gradient(ellipse at center,transparent 58%,rgba(0,0,0,.55) 100%), linear-gradient(135deg,rgba(255,255,255,.10),transparent 35%);}
+  .retro-tv{position:relative; max-width:780px; margin:30px auto 0; filter:drop-shadow(0 30px 28px rgba(0,0,0,.6));}
+  .tv-cab{position:relative; display:flex; gap:0; border-radius:18px 18px 12px 12px / 16px 16px 10px 10px; padding:22px 22px 26px;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.22) 0,rgba(255,255,255,0) 3%),
+      linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(0,0,0,0) 4%,rgba(0,0,0,0) 96%,rgba(0,0,0,.4) 100%),
+      linear-gradient(180deg,#4b4a47 0%,#33322f 45%,#262523 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35), inset 0 -4px 6px rgba(0,0,0,.55), 0 1px 0 #111;}
+  .tv-cab::before{content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:.5; mix-blend-mode:overlay;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");}
+  .tv-main{position:relative; flex:1 1 auto; min-width:0;}
+  .tv-bezel{position:relative; padding:18px; border-radius:22px / 20px; background:linear-gradient(145deg,#0d0d0c,#1b1a18 60%,#0a0a09);
+    box-shadow:inset 0 0 0 2px #000, inset 0 6px 16px rgba(0,0,0,.9), 0 1px 0 rgba(255,255,255,.12), 0 -1px 0 rgba(0,0,0,.6);}
+  .tv-screen{position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#000; border-radius:5% / 8%;
+    box-shadow:0 0 0 3px #000, 0 0 40px 6px rgba(150,200,255,.12);}
+  .tv-screen iframe{position:absolute; inset:0; width:100%; height:100%; border:0; filter:saturate(1.08) contrast(1.04);}
+  .tv-glass{position:absolute; inset:0; z-index:3; pointer-events:none; border-radius:inherit;
+    background:
+      radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(0,0,0,.45) 100%),
+      linear-gradient(118deg,rgba(255,255,255,.17) 0,rgba(255,255,255,.05) 22%,transparent 38%),
+      radial-gradient(60% 40% at 18% 12%,rgba(255,255,255,.14),transparent 70%),
+      repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px);
+    box-shadow:inset 0 0 38px 10px rgba(0,0,0,.55), inset 0 0 2px 1px rgba(255,255,255,.12);}
   .tv-static{position:absolute; inset:0; z-index:2; pointer-events:none; opacity:0; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); background-size:220px;}
   .tv-static.on{opacity:1; animation:tv-snow .4s steps(4) 1;}
   @keyframes tv-snow{0%{background-position:0 0}25%{background-position:-60px 40px}50%{background-position:30px -80px}75%{background-position:-90px -20px}100%{background-position:10px 60px}}
-  .tv-controls{position:relative; display:flex; align-items:center; gap:14px; margin-top:14px; padding:0 6px; flex-wrap:wrap;}
-  .tv-led{width:10px; height:10px; border-radius:50%; background:#ff3b2e; box-shadow:0 0 8px 2px rgba(255,59,46,.7); flex-shrink:0;}
-  .tv-chan{display:flex; gap:10px;}
-  .tv-chan button{font-family:'DM Mono',monospace; font-size:.8rem; letter-spacing:.08em; color:#e9dcc6; background:linear-gradient(180deg,#3a3a3a,#1d1d1d); border:1px solid #000; border-radius:6px; padding:9px 16px; cursor:pointer; box-shadow:0 3px 0 #000, inset 0 1px 0 rgba(255,255,255,.18);}
-  .tv-chan button[aria-pressed="true"]{color:#1b1200; background:linear-gradient(180deg,#ffd54a,#e8a90c); transform:translateY(2px); box-shadow:0 1px 0 #000, 0 0 12px rgba(251,198,8,.45);}
+  .tv-side{flex:0 0 112px; margin-left:18px; padding:6px 0; display:flex; flex-direction:column; align-items:center; gap:14px;}
+  .tv-grille{width:100%; height:92px; border-radius:6px; background:repeating-linear-gradient(180deg,#0c0c0b 0 3px,#3a3936 3px 6px); box-shadow:inset 0 2px 6px rgba(0,0,0,.9), 0 1px 0 rgba(255,255,255,.12);}
+  .tv-chan{display:flex; flex-direction:column; gap:8px; width:100%;}
+  .tv-chan button{font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.1em; color:#cfc9bd; cursor:pointer; padding:9px 6px; border-radius:4px; border:1px solid #0b0b0a;
+    background:linear-gradient(180deg,#5a5955,#3a3935 55%,#2b2a27); box-shadow:0 3px 0 #0b0b0a, inset 0 1px 0 rgba(255,255,255,.28); text-transform:uppercase;}
+  .tv-chan button[aria-pressed="true"]{transform:translateY(2px); color:#ffe9a8; background:linear-gradient(180deg,#2a2926,#3a3935); box-shadow:0 1px 0 #0b0b0a, inset 0 2px 5px rgba(0,0,0,.7), 0 0 10px rgba(255,190,60,.25);}
   .tv-chan button:focus-visible{outline:2px solid #fff; outline-offset:2px;}
-  .tv-knobs{margin-left:auto; display:flex; gap:12px;}
-  .tv-knob{width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#d8d0c0,#7d7668 60%,#4a453b); box-shadow:0 3px 6px rgba(0,0,0,.5), inset 0 0 0 3px rgba(0,0,0,.25); position:relative;}
-  .tv-knob::after{content:""; position:absolute; left:50%; top:4px; width:3px; height:11px; margin-left:-1.5px; background:#1b1b1b; border-radius:2px;}
-  .tv-knob:nth-child(2){transform:rotate(55deg);}
-  .tv-grille{position:absolute; right:26px; bottom:12px; display:none;}
-  .tv-feet{display:flex; justify-content:space-between; padding:0 12%;}
-  .tv-feet span{width:46px; height:14px; background:#2b1a0f; border-radius:0 0 8px 8px; box-shadow:0 8px 10px rgba(0,0,0,.4);}
-  @media (max-width:560px){.tv-body{padding:12px 12px 10px; border-radius:20px}.tv-bezel{padding:9px; border-radius:16px}.tv-knobs{display:none}.tv-chan button{padding:8px 12px}}
+  .tv-dials{display:flex; gap:10px; margin-top:2px;}
+  .tv-dial{width:38px; height:38px; border-radius:50%; position:relative; background:conic-gradient(from 0deg,#8d8b85,#d9d6ce,#8d8b85,#4a4944,#8d8b85,#d9d6ce,#8d8b85); box-shadow:0 4px 7px rgba(0,0,0,.6), inset 0 0 0 4px rgba(0,0,0,.35), 0 0 0 3px #1d1c1a;}
+  .tv-dial::after{content:""; position:absolute; left:50%; top:5px; width:3px; height:12px; margin-left:-1.5px; background:#111; border-radius:2px;}
+  .tv-dial:nth-child(2){transform:rotate(70deg);}
+  .tv-power{display:flex; align-items:center; gap:8px; margin-top:auto; font:600 .55rem 'DM Mono',monospace; letter-spacing:.16em; color:#8d8a82;}
+  .tv-led{width:8px; height:8px; border-radius:50%; background:#ff4a2e; box-shadow:0 0 8px 2px rgba(255,74,46,.7);}
+  .tv-foot{height:10px; margin:0 6%; border-radius:0 0 10px 10px; background:linear-gradient(180deg,#1a1917,#0d0d0c);}
+  @media (max-width:640px){
+    .tv-cab{flex-direction:column; padding:14px 14px 16px; border-radius:14px}
+    .tv-bezel{padding:10px; border-radius:16px}
+    .tv-side{flex:none; margin:12px 0 0; padding:0; flex-direction:row; align-items:center; gap:12px; width:100%}
+    .tv-grille,.tv-dials{display:none}
+    .tv-chan{flex-direction:row; width:auto; flex:1}
+    .tv-chan button{flex:1}
+    .tv-power{margin:0}
+  }
   @media (prefers-reduced-motion:reduce){.tv-static.on{animation:none; opacity:.9}}
 </style>
     <div class="retro-tv" id="retroTv">
-      <div class="tv-body">
-        <div class="tv-bezel">
-          <div class="tv-screen">
-            <iframe id="tvFrame" src="https://www.youtube.com/embed/odv7OehzC1A" title="Tribute ABBA — Teaser 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            <div class="tv-static" id="tvStatic"></div>
+      <div class="tv-cab">
+        <div class="tv-main">
+          <div class="tv-bezel">
+            <div class="tv-screen">
+              <iframe id="tvFrame" src="https://www.youtube.com/embed/odv7OehzC1A" title="Tribute ABBA — Teaser 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <div class="tv-static" id="tvStatic"></div>
+              <div class="tv-glass" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
-        <div class="tv-controls">
-          <span class="tv-led" aria-hidden="true"></span>
-          <div class="tv-chan" role="group" aria-label="Choix de la chaîne">
+        <div class="tv-side">
+          <div class="tv-grille" aria-hidden="true"></div>
+          <div class="tv-chan" role="group" aria-label="Choix de la vidéo">
             <button type="button" data-v="odv7OehzC1A" data-t="Tribute ABBA — Teaser 1" aria-pressed="true">TEASER 1</button>
             <button type="button" data-v="S-G_SznvWQg" data-t="Tribute ABBA — Teaser 2" aria-pressed="false">TEASER 2</button>
           </div>
-          <div class="tv-knobs" aria-hidden="true"><span class="tv-knob"></span><span class="tv-knob"></span></div>
+          <div class="tv-dials" aria-hidden="true"><span class="tv-dial"></span><span class="tv-dial"></span></div>
+          <div class="tv-power" aria-hidden="true"><span class="tv-led"></span>ON</div>
         </div>
       </div>
-      <div class="tv-feet" aria-hidden="true"><span></span><span></span></div>
+      <div class="tv-foot" aria-hidden="true"></div>
     </div>
     <script>
     (function(){
