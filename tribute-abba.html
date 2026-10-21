@@ -278,19 +278,15 @@
     </div>
     <style>
   .retro-tv{max-width:520px; margin:26px auto 0;}
-  .tv-set{position:relative; width:100%; aspect-ratio:1400/1141; filter:drop-shadow(0 22px 20px rgba(0,0,0,.6));}
+  .tv-set{position:relative; width:100%; aspect-ratio:1400/1630; filter:drop-shadow(0 22px 20px rgba(0,0,0,.6));}
   .tv-set > *{position:absolute;}
-  .tv-view{left:6.46%; top:8.60%; width:86.99%; height:59.10%; background:#000; border-radius:2.4% / 4%; overflow:hidden;}
+  .tv-view{left:6.46%; top:6.02%; width:86.99%; height:41.37%; background:#000; border-radius:2.4% / 4%; overflow:hidden;}
   .tv-view iframe{position:absolute; inset:0; width:100%; height:100%; border:0; filter:saturate(1.06) contrast(1.04);}
   .tv-static{position:absolute; inset:0; z-index:2; pointer-events:none; opacity:0; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); background-size:220px;}
   .tv-static.on{opacity:1; animation:tv-snow .4s steps(4) 1;}
   @keyframes tv-snow{0%{background-position:0 0}25%{background-position:-60px 40px}50%{background-position:30px -80px}75%{background-position:-90px -20px}100%{background-position:10px 60px}}
   .tv-glass{position:absolute; inset:0; z-index:3; pointer-events:none; background:linear-gradient(120deg,rgba(255,255,255,.10) 0,rgba(255,255,255,.03) 24%,transparent 40%), radial-gradient(130% 100% at 50% 45%,transparent 66%,rgba(0,0,0,.3) 100%); box-shadow:inset 0 0 22px 4px rgba(0,0,0,.45);}
   .tv-frame{left:0; top:0; width:100%; height:100%; z-index:5; pointer-events:none; user-select:none;}
-  .tv-legs{position:relative; height:70px; margin:0 8%;}
-  .tv-legs span{position:absolute; top:-2px; width:22px; height:78px; background:linear-gradient(90deg,#8a4a2a,#b5693f 45%,#7a3f22); clip-path:polygon(0 0,100% 0,72% 100%,28% 100%); filter:drop-shadow(0 8px 5px rgba(0,0,0,.5));}
-  .tv-legs span:nth-child(1){left:2%; transform:rotate(12deg); transform-origin:top center;}
-  .tv-legs span:nth-child(2){right:2%; transform:rotate(-12deg); transform-origin:top center;}
   .tv-chan{display:flex; justify-content:center; gap:14px; margin-top:16px; flex-wrap:wrap;}
   .tv-chan button{font-family:'DM Mono',monospace; font-size:.78rem; letter-spacing:.1em; color:#3a2418; cursor:pointer; padding:10px 20px; border-radius:6px; border:1px solid #7b5a45; text-transform:uppercase;
     background:linear-gradient(180deg,#fbf8f3,#e2d9cc); box-shadow:0 4px 0 #6b4a35, inset 0 1px 0 #fff;}
@@ -305,9 +301,8 @@
           <div class="tv-static" id="tvStatic"></div>
           <div class="tv-glass" aria-hidden="true"></div>
         </div>
-        <img class="tv-frame" src="tv-retro-2.webp" alt="" aria-hidden="true" width="1400" height="1141" loading="lazy" decoding="async">
+        <img class="tv-frame" src="tv-retro-2.webp" alt="" aria-hidden="true" width="1400" height="1630" loading="lazy" decoding="async">
       </div>
-      <div class="tv-legs" aria-hidden="true"><span></span><span></span></div>
       <div class="tv-chan" role="group" aria-label="Choix de la vidéo">
         <button type="button" data-v="odv7OehzC1A" data-t="Tribute ABBA — Teaser 1" aria-pressed="true">TEASER 1</button>
         <button type="button" data-v="S-G_SznvWQg" data-t="Tribute ABBA — Teaser 2" aria-pressed="false">TEASER 2</button>
