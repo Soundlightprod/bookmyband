@@ -4,6 +4,7 @@
    aucun cookie) pour compter les retours. Le choix est conservé 6 mois, modifiable à tout moment.
    Injecté en tête de chaque page publique par le Worker (withVideoTracking). */
 (function () {
+  if (window.__slpConsentLoaded) return; window.__slpConsentLoaded = true;
   var LS;
   try { LS = window.localStorage; LS.getItem('slp_consent'); } catch (e) { return; }
   // Navigateurs de l'admin ou de test : ni bandeau ni identifiant.
