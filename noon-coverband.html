@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script src="/consent.js" data-legal="/mentions-legales"></script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NooN Coverband — artiste à réserver | Book My Band</title>
 <meta name="description" content="NooN Coverband, duo pop/rock/funk disponible partout en France, diffusé par Book My Band pour vos événements.">
@@ -473,7 +474,7 @@ document.querySelectorAll('.photo-grid a').forEach(function(a){
 <script>
 (function(){
   try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
-  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"noon-coverband",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
+  fetch("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"noon-coverband",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
 })();
 </script>
 </body>

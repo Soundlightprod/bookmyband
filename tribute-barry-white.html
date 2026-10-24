@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script src="/consent.js" data-legal="/mentions-legales"></script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tribute Barry White : concert et spectacle hommage 100 % live à réserver | Book My Band</title>
 <meta name="description" content="Réservez un tribute Barry White pour votre événement : la soul du Maestro de l&#x27;Amour, 100 % live. De 9 à 14 musiciens, environ 1 h 30 de show. Galas, festivals, concerts, saisons culturelles, partout en France. Devis gratuit.">
@@ -428,7 +429,7 @@ document.querySelectorAll('.photo-grid a').forEach(function(a){
 <script>
 (function(){
   try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
-  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"tribute-barry-white",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
+  fetch("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"tribute-barry-white",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
 })();
 </script>
 </body>

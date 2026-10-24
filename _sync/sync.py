@@ -129,7 +129,7 @@ def build_page(a):
     scripts = [s for s in re.findall(r'<script>.*?</script>', src[src.index('<section class="cta-band">'):], re.S)
                if 'track-visit' not in s]
     track = ('<script>\n(function(){\n  try{ var sid=sessionStorage.getItem(\'bmb_visit_sid\'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem(\'bmb_visit_sid\',sid); } }catch(e){ var sid=null; }\n'
-             '  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},'
+             '  fetch("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},'
              f'body:JSON.stringify({{artist_slug:"{a["slug"]}",session_id:sid,site:"bmb",ref:document.referrer}})}}).catch(function(){{}});\n}})();\n</script>')
 
     # bloc de mise en page compacte commun à toutes les fiches (repris du gabarit)

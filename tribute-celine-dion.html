@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script src="/consent.js" data-legal="/mentions-legales"></script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tribute Céline Dion — artiste à réserver | Book My Band</title>
 <meta name="description" content="Réservez un tribute Céline Dion pour votre événement : ses plus grands titres dans un show live, avec 6 artistes sur scène. Festivités, concerts, galas, saisons culturelles, partout en France. Devis gratuit.">
@@ -440,7 +441,7 @@ document.querySelectorAll('.photo-grid a').forEach(function(a){
 <script>
 (function(){
   try{ var sid=sessionStorage.getItem('bmb_visit_sid'); if(!sid){ sid=Date.now().toString(36)+Math.random().toString(36).slice(2); sessionStorage.setItem('bmb_visit_sid',sid); } }catch(e){ var sid=null; }
-  fetch("https://slp-api.raspy-silence-d4c7.workers.dev/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"tribute-celine-dion",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
+  fetch("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"tribute-celine-dion",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
 })();
 </script>
 <style>
