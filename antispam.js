@@ -55,14 +55,17 @@
   if (!SITEKEY) return;
 
   function mount() {
+    // Le widget reste invisible (hors vue) : il n'apparaît que si Cloudflare demande une vraie interaction.
+    var HIDE = 'position:fixed;left:8px;bottom:8px;z-index:2147483000;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none';
+    var SHOW = 'position:fixed;left:8px;bottom:8px;z-index:2147483000';
     var host = document.createElement('div');
-    host.id = 'slp-turnstile';
-    var form = document.getElementById('devis-form') || document.getElementById('f');
-    if (form) { host.style.cssText = 'margin:10px 0'; form.appendChild(host); }
-    else { host.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:2147483000'; document.body.appendChild(host); }
+    host.id = 'slp-turnstile'; host.style.cssText = HIDE;
+    document.body.appendChild(host);
     wid = window.turnstile.render(host, {
       sitekey: SITEKEY, appearance: 'interaction-only', language: 'auto',
-      callback: function (t) { token = t; },
+      'before-interactive-callback': function () { host.style.cssText = SHOW; },
+      'after-interactive-callback': function () { host.style.cssText = HIDE; },
+      callback: function (t) { token = t; host.style.cssText = HIDE; },
       'expired-callback': function () { token = ''; },
       'error-callback': function () { token = ''; }
     });
