@@ -5,7 +5,7 @@
      il reste invisible tant que Cloudflare n'a pas besoin d'une interaction. Aucun cookie. */
 (function () {
   if (window.slpAS) return;
-  var SITEKEY = ''; // clé de site Turnstile (publique) — à renseigner une fois le widget créé dans Cloudflare
+  var SITEKEY = '0x4AAAAAAF7KJId7PfS600oy'; // clé de site Turnstile (publique)
   var t0 = Date.now(), token = '', wid = null, capId = '', capInput = null, capLabel = null, capQ = '';
   var path = location.pathname, L = (path.match(/^\/(en|es|it)(\/|$)/) || [, 'fr'])[1];
   var TXT = {
@@ -49,7 +49,7 @@
     token: function () { return token; },
     captcha: function () { return { captcha_id: capId, captcha_answer: capInput ? capInput.value.trim() : '' }; },
     reset: function () { token = ''; try { if (wid !== null && window.turnstile) window.turnstile.reset(wid); } catch (e) {} },
-    captchaReset: loadCaptcha,
+    captchaReset: function () { loadCaptcha(); window.slpAS.reset(); }, // un jeton Turnstile ne sert qu'une fois : on le renouvelle aussi
     captchaFocus: function () { if (capInput) capInput.focus(); }
   };
   if (!SITEKEY) return;
