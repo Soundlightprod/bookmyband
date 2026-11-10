@@ -1,15 +1,56 @@
 /* SLP — protection anti-robots des formulaires et du chat.
    - dt() : temps écoulé depuis le chargement de la page (le serveur refuse les envois faits en moins de 3 s).
+   - captcha() : réponse à la question de vérification (petit calcul) affichée dans le formulaire.
    - token() : jeton Cloudflare Turnstile. Le widget n'est affiché que si une clé de site est renseignée ci-dessous ;
      il reste invisible tant que Cloudflare n'a pas besoin d'une interaction. Aucun cookie. */
 (function () {
   if (window.slpAS) return;
   var SITEKEY = ''; // clé de site Turnstile (publique) — à renseigner une fois le widget créé dans Cloudflare
-  var t0 = Date.now(), token = '', wid = null;
+  var t0 = Date.now(), token = '', wid = null, capId = '', capInput = null, capLabel = null, capQ = '';
+  var path = location.pathname, L = (path.match(/^\/(en|es|it)(\/|$)/) || [, 'fr'])[1];
+  var TXT = {
+    fr: ['Vérification anti-robot : combien font ', ' ? *', 'Réponse (un nombre)'],
+    en: ['Anti-spam check: what is ', '? *', 'Answer (a number)'],
+    es: ['Verificación anti-robot: ¿cuánto es ', '? *', 'Respuesta (un número)'],
+    it: ['Verifica anti-robot: quanto fa ', '? *', 'Risposta (un numero)']
+  }[L];
+
+  function loadCaptcha() {
+    if (!capLabel) return;
+    capId = ''; if (capInput) capInput.value = '';
+    fetch('https://soundlightprod.fr/api/captcha', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (j && j.ok) { capId = j.id; capQ = j.q; capLabel.textContent = TXT[0] + j.q + TXT[1]; } })
+      .catch(function () {});
+  }
+  function mountCaptcha() {
+    var form = document.getElementById('devis-form') || document.getElementById('f');
+    if (!form || document.getElementById('slp-cq')) return;
+    var btn = form.querySelector('button[type="submit"], button:not([type])');
+    if (!btn) return;
+    var inp = document.createElement('input');
+    inp.id = 'slp-cq'; inp.type = 'text'; inp.inputMode = 'numeric'; inp.autocomplete = 'off'; inp.maxLength = 3; inp.placeholder = TXT[2]; inp.setAttribute('aria-required', 'true');
+    var lab = document.createElement('span'); lab.id = 'slp-cq-label'; lab.textContent = '…';
+    var box;
+    if (form.classList.contains('form')) { // Book My Band : le libellé enveloppe le champ
+      box = document.createElement('label'); box.append(lab, inp);
+    } else {
+      box = document.createElement('div'); box.className = 'field';
+      var l = document.createElement('label'); l.htmlFor = 'slp-cq'; l.append(lab); box.append(l, inp);
+    }
+    btn.parentNode.insertBefore(box, btn);
+    capInput = inp; capLabel = lab;
+    loadCaptcha();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountCaptcha); else mountCaptcha();
+
   window.slpAS = {
     dt: function () { return Math.max(0, Date.now() - t0); },
     token: function () { return token; },
-    reset: function () { token = ''; try { if (wid !== null && window.turnstile) window.turnstile.reset(wid); } catch (e) {} }
+    captcha: function () { return { captcha_id: capId, captcha_answer: capInput ? capInput.value.trim() : '' }; },
+    reset: function () { token = ''; try { if (wid !== null && window.turnstile) window.turnstile.reset(wid); } catch (e) {} },
+    captchaReset: loadCaptcha,
+    captchaFocus: function () { if (capInput) capInput.focus(); }
   };
   if (!SITEKEY) return;
 
