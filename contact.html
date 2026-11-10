@@ -194,6 +194,7 @@
     <label>Votre message<textarea id="m" rows="6" placeholder="Type d'événement, nombre d'invités, horaires..."></textarea></label>
     <button class="btn btn-grad" type="submit">Envoyer ma demande</button>
     <input type="checkbox" id="hp" tabindex="-1" autocomplete="off" style="display:none">
+    <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"><label for="site_web">Ne pas remplir</label><input type="text" id="site_web" tabindex="-1" autocomplete="off"></div>
     <p class="msg" id="msg" role="status"></p>
     <p class="note">Réponse sous 48 h. Vous pouvez aussi nous appeler au <a href="tel:+33631949653">+33 6 31 94 96 53</a>.</p>
   </form>
@@ -208,15 +209,20 @@
 </footer>
 <script>
 var F=document.getElementById('f'),M=document.getElementById('msg'),B=F.querySelector('button');
+var CLE='bmb-'+Date.now().toString(36)+Math.random().toString(36).slice(2,10);
 F.addEventListener('submit',function(ev){ev.preventDefault(); if(document.getElementById('hp').checked) return;
- var v=function(i){return document.getElementById(i).value};
- var data={access_key:'52b8cb1e-c8ef-4ed2-8893-1d3305299e16', subject:'Book My Band - demande de réservation ('+v('a')+')', from_name:'Site Book My Band',
-   'Nom':v('n'), email:v('e'), 'Téléphone':v('t'), 'Date':v('d'), 'Lieu':v('l'), 'Artiste':v('a'), 'Message':v('m')};
+ var v=function(i){return document.getElementById(i).value.trim()};
+ var sid=''; try{ sid=sessionStorage.getItem('bmb_visit_sid')||''; }catch(e){}
+ var art=v('a');
+ var data={nom:v('n'), email:v('e'), telephone:v('t'), date_event:v('d'), lieu:v('l'), artiste_nom:art, sujet:'Book My Band - réservation d\'artiste',
+   message:(art&&art!=='Je ne sais pas encore'?'Artiste souhaité : '+art+'\n':'')+v('m'),
+   site_web:document.getElementById('site_web').value, page:'contact', site:'bmb', lang:'fr', session_id:sid, cle:CLE,
+   dt:window.slpAS?window.slpAS.dt():Math.round(performance.now()), cf_token:window.slpAS?window.slpAS.token():''};
  B.disabled=true; B.textContent='Envoi en cours…'; M.className='msg';
- fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
- .then(function(r){return r.json()}).then(function(j){ if(!j.success) throw 0;
-   F.reset(); M.className='msg ok'; M.textContent='Merci ! Votre demande a bien été envoyée, nous revenons vers vous très vite.'; })
- .catch(function(){ M.className='msg ko'; M.textContent="Oups, l'envoi n'a pas abouti. Réessayez ou appelez-nous au +33 6 31 94 96 53."; })
+ fetch('https://soundlightprod.fr/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+ .then(function(r){return r.json().catch(function(){return {ok:false};})}).then(function(j){ if(!j.ok){ var e=new Error(j.error||''); e.api=true; throw e; }
+   F.reset(); M.className='msg ok'; M.textContent='Merci ! Votre demande a bien été envoyée, nous revenons vers vous très vite.'; CLE='bmb-'+Date.now().toString(36)+Math.random().toString(36).slice(2,10); })
+ .catch(function(e){ M.className='msg ko'; M.textContent=(e&&e.api&&e.message)?e.message:"Oups, l'envoi n'a pas abouti. Réessayez ou appelez-nous au +33 6 31 94 96 53."; })
  .finally(function(){ B.disabled=false; B.textContent='Envoyer ma demande'; });
 });
 var q=new URLSearchParams(location.search).get('artiste'); if(q){var s=document.getElementById('a'); for(var i=0;i<s.options.length;i++) if(s.options[i].text===q) s.selectedIndex=i;}
@@ -227,5 +233,6 @@ var q=new URLSearchParams(location.search).get('artiste'); if(q){var s=document.
   (function(){try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem("slp_notrack","1");if(/[?&]notrack=0/.test(location.search))localStorage.removeItem("slp_notrack");if(localStorage.getItem("slp_notrack"))return Promise.resolve();}catch(e){}return fetch.apply(window,arguments);})("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"contact",session_id:sid,site:"bmb",ref:(function(){try{var q=new URLSearchParams(location.search),s=q.get("utm_source")||(q.get("utm_medium")==="email"?"email":"");if(s){var c=(q.get("utm_campaign")||"").toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,50);return "https://emailing-"+s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")+(c?"."+c:"")+"/";}}catch(e){}return document.referrer;})()})}).catch(function(){});
 })();
 </script>
+<script src="antispam.js" defer></script>
 </body>
 </html>
