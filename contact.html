@@ -215,7 +215,7 @@ F.addEventListener('submit',function(ev){ev.preventDefault(); if(document.getEle
  var sid=''; try{ sid=sessionStorage.getItem('bmb_visit_sid')||''; }catch(e){}
  var art=v('a');
  var data={nom:v('n'), email:v('e'), telephone:v('t'), date_event:v('d'), lieu:v('l'), artiste_nom:art, sujet:'Book My Band - réservation d\'artiste',
-   message:(art&&art!=='Je ne sais pas encore'?'Artiste souhaité : '+art+'\n':'')+v('m'),
+   message:v('m'),
    site_web:document.getElementById('site_web').value, page:'contact', site:'bmb', lang:'fr', session_id:sid, cle:CLE,
    dt:window.slpAS?window.slpAS.dt():Math.round(performance.now()), cf_token:window.slpAS?window.slpAS.token():''};
  if(window.slpAS) Object.assign(data, window.slpAS.captcha());
