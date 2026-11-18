@@ -8,13 +8,13 @@
 <meta name="keywords" content="tribute ABBA, tribute Calogero, tribute Bee Gees, tribute Phil Collins, tribute Kool and the Gang, tribute Matmatah, tribute Balavoine, tribute Barry White, spectacle tribute, groupe tribute, revue cabaret, spectacle cabaret, groupe de reprises, DJ animation, groupe de musique live, concert, festival, festivités, marché gourmand, saison culturelle, soirée privée, mariage, gala, sonorisation, éclairage scénique, son et lumière, réservation groupe, booking artiste">
 <link rel="canonical" href="https://bookmyband.fr/contact">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#0B0D17">
 <meta property="og:site_name" content="Book My Band"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website">
 <meta property="og:title" content="Devis gratuit — réserver un groupe ou un DJ | Book My Band"><meta property="og:description" content="Demandez un devis gratuit et sans engagement pour réserver un groupe live, un tribute, une revue cabaret ou un DJ : réponse sous 24 h."><meta property="og:url" content="https://bookmyband.fr/contact"><meta property="og:image" content="https://bookmyband.fr/bmb-banniere.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box; margin:0; padding:0;}
   body{font-family:'Manrope',sans-serif; line-height:1.6; overflow-x:hidden;}
@@ -32,9 +32,9 @@
   .pass:hover{transform:translateY(-6px) rotate(-.6deg);}
   .pass .ph{position:absolute; inset:0 0 36% 0; overflow:hidden;}
   .pass .ph img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(.95); transition:filter .45s, transform .6s;}
-  .pass .ph::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
+  .pass .ph::after{content:''; position:absolute; inset:0; background:var(--bmb-purple); mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
   .pass:hover .ph img{filter:none; transform:scale(1.07);} .pass:hover .ph::after{opacity:0;}
-  .pass .tag{position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:#0a0a0a; color:#fff; padding:6px 10px; border-radius:3px;}
+  .pass .tag{position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--bmb-midnight); color:#fff; padding:6px 10px; border-radius:3px;}
   .pass .num{position:absolute; top:10px; right:14px; z-index:2; font-family:'Unbounded',sans-serif; font-weight:900; font-size:1.7rem; line-height:1; color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.9); text-shadow:0 2px 14px rgba(0,0,0,.4);}
   .pass .stub{position:absolute; left:0; right:0; bottom:0; height:36%; padding:18px 18px 16px; display:flex; flex-direction:column; gap:6px; background:linear-gradient(180deg,#171717,#101010); border-top:2px dashed rgba(255,255,255,.22);}
   .pass h3{font-family:'Unbounded',sans-serif; font-weight:800; font-size:1.08rem; line-height:1.15; text-transform:uppercase; letter-spacing:-.01em;}
@@ -51,13 +51,13 @@
   .marquee span{font-family:'Unbounded',sans-serif; font-weight:900; font-size:clamp(1.6rem,4vw,2.8rem); text-transform:uppercase; white-space:nowrap; line-height:1.1;}
   .marquee .o{color:transparent; -webkit-text-stroke:1.2px rgba(255,255,255,.55);}
   .marquee .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .marquee em{font-style:normal; color:#ff4d3a; font-size:1.4rem; align-self:center;}
+  .marquee em{font-style:normal; color:var(--bmb-purple); font-size:1.4rem; align-self:center;}
   @keyframes mq{to{transform:translateX(-50%)}}
   @media (prefers-reduced-motion:reduce){ .marquee .trk{animation:none;} }
   /* filtres façon onglets de billetterie */
   .filters{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
   .filters button{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:#cfcfd6; background:#131313; border:1px solid var(--line); border-radius:4px; padding:10px 16px; cursor:pointer; transform:skewX(-8deg); transition:all .2s;}
-  .filters button:hover{border-color:#ff4d3a; color:#fff;}
+  .filters button:hover{border-color:var(--bmb-purple); color:#fff;}
   .filters button.on{background:var(--grad); border-color:transparent; color:#fff;}
   .pass.hide{display:none;}
   @media (max-width:640px){ .filters{flex-wrap:nowrap; overflow-x:auto; margin:22px -24px 0; padding:4px 24px 8px; scrollbar-width:none;} .filters::-webkit-scrollbar{display:none;} .filters button{flex:0 0 auto;} .grid{grid-template-columns:1fr 1fr; gap:14px;} .pass{--n:10px; --cut:60%;} .pass .stub{padding:12px 12px 10px; height:40%;} .pass .ph{bottom:40%;} .pass h3{font-size:.82rem;} .pass p{display:none;} .pass .bar{display:none;} .pass .cta{font-size:.6rem;} .pass .tag{font-size:.55rem; padding:4px 7px; top:8px; left:8px;} .pass .num{font-size:1.2rem; top:8px; right:9px;} }
@@ -75,9 +75,9 @@
   .pass:hover{transform:translateY(-6px) rotate(-.6deg);}
   .pass .ph{position:absolute; inset:0 0 36% 0; overflow:hidden;}
   .pass .ph img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(.95); transition:filter .45s, transform .6s;}
-  .pass .ph::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
+  .pass .ph::after{content:''; position:absolute; inset:0; background:var(--bmb-purple); mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
   .pass:hover .ph img{filter:none; transform:scale(1.07);} .pass:hover .ph::after{opacity:0;}
-  .pass .tag{position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:#0a0a0a; color:#fff; padding:6px 10px; border-radius:3px;}
+  .pass .tag{position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--bmb-midnight); color:#fff; padding:6px 10px; border-radius:3px;}
   .pass .num{position:absolute; top:10px; right:14px; z-index:2; font-family:'Unbounded',sans-serif; font-weight:900; font-size:1.7rem; line-height:1; color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.9); text-shadow:0 2px 14px rgba(0,0,0,.4);}
   .pass .stub{position:absolute; left:0; right:0; bottom:0; height:36%; padding:18px 18px 16px; display:flex; flex-direction:column; gap:6px; background:linear-gradient(180deg,#171717,#101010); border-top:2px dashed rgba(255,255,255,.22);}
   .pass h3{font-family:'Unbounded',sans-serif; font-weight:800; font-size:1.08rem; line-height:1.15; text-transform:uppercase; letter-spacing:-.01em;}
@@ -94,13 +94,13 @@
   .marquee span{font-family:'Unbounded',sans-serif; font-weight:900; font-size:clamp(1.6rem,4vw,2.8rem); text-transform:uppercase; white-space:nowrap; line-height:1.1;}
   .marquee .o{color:transparent; -webkit-text-stroke:1.2px rgba(255,255,255,.55);}
   .marquee .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .marquee em{font-style:normal; color:#ff4d3a; font-size:1.4rem; align-self:center;}
+  .marquee em{font-style:normal; color:var(--bmb-purple); font-size:1.4rem; align-self:center;}
   @keyframes mq{to{transform:translateX(-50%)}}
   @media (prefers-reduced-motion:reduce){ .marquee .trk{animation:none;} }
   /* filtres façon onglets de billetterie */
   .filters{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
   .filters button{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:#cfcfd6; background:#131313; border:1px solid var(--line); border-radius:4px; padding:10px 16px; cursor:pointer; transform:skewX(-8deg); transition:all .2s;}
-  .filters button:hover{border-color:#ff4d3a; color:#fff;}
+  .filters button:hover{border-color:var(--bmb-purple); color:#fff;}
   .filters button.on{background:var(--grad); border-color:transparent; color:#fff;}
   .pass.hide{display:none;}
   @media (max-width:640px){ .filters{flex-wrap:nowrap; overflow-x:auto; margin:22px -24px 0; padding:4px 24px 8px; scrollbar-width:none;} .filters::-webkit-scrollbar{display:none;} .filters button{flex:0 0 auto;} .grid{grid-template-columns:1fr 1fr; gap:14px;} .pass{--n:10px; --cut:60%;} .pass .stub{padding:12px 12px 10px; height:40%;} .pass .ph{bottom:40%;} .pass h3{font-size:.82rem;} .pass p{display:none;} .pass .bar{display:none;} .pass .cta{font-size:.6rem;} .pass .tag{font-size:.55rem; padding:4px 7px; top:8px; left:8px;} .pass .num{font-size:1.2rem; top:8px; right:9px;} }
@@ -116,7 +116,7 @@
   .form .row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .form label{display:flex; flex-direction:column; gap:7px; font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--amber);}
   .form input,.form select,.form textarea{font:inherit; font-size:1rem; text-transform:none; letter-spacing:0; font-weight:500; color:#fff; background:#0d0d0d; border:1px solid var(--line); border-radius:12px; padding:13px 14px;}
-  .form input:focus,.form select:focus,.form textarea:focus{outline:none; border-color:#ff2d6f;}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:none; border-color:var(--bmb-purple);}
   .form .note{color:var(--muted); font-size:.86rem;}
   .msg{display:none; padding:14px 16px; border-radius:12px; font-weight:700;} .msg.ok{display:block; background:rgba(40,200,120,.12); border:1px solid rgba(40,200,120,.5); color:#8ff0bd;} .msg.ko{display:block; background:rgba(255,45,85,.12); border:1px solid rgba(255,45,85,.5); color:#ff9db0;}
   .form button.btn{display:block; width:100%; padding:20px 34px; font-size:1.1rem !important; letter-spacing:.02em; border-radius:6px; border:0; font:800 1rem 'Manrope',sans-serif; color:#fff; background:var(--grad); cursor:pointer; align-self:stretch; box-shadow:none;}
@@ -129,13 +129,13 @@
   .bmb-hero-img{position:absolute; top:0; right:0; bottom:0; width:min(48vw,640px); z-index:0; pointer-events:none;
      -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%); mask-image:linear-gradient(90deg,transparent 0%,#000 45%);}
   .bmb-hero-img img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(.8);}
-  .bmb-hero-img::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.9;}
-  .bmb-hero-img::before{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg,#0a0a0a 0%,transparent 35%);}
+  .bmb-hero-img::after{content:''; position:absolute; inset:0; background:var(--bmb-purple); mix-blend-mode:color; opacity:.9;}
+  .bmb-hero-img::before{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg,var(--bmb-midnight) 0%,transparent 35%);}
   .page-hero-inner{position:relative; z-index:2;}
   @media (max-width:760px){ .bmb-hero-img{width:100%; opacity:.28; -webkit-mask-image:none; mask-image:none;} }
-  :root{--ink:#0a0a0a; --ink-2:#151515; --paper:#ffffff; --muted:#a9a9b3; --line:rgba(255,255,255,0.12);
-        --gold:#ff2d6f; --amber:#ff8a1f; --violet:#ff2d6f; --blue:#ff6a00; --pink:#ff2d6f;
-        --grad:#ff2d6f; --accent:#ff2d6f;}
+  :root{--ink:var(--bmb-midnight); --ink-2:#151515; --paper:#ffffff; --muted:#a9a9b3; --line:rgba(255,255,255,0.12);
+        --gold:var(--bmb-purple); --amber:var(--bmb-lavender); --violet:var(--bmb-purple); --blue:#ff6a00; --pink:var(--bmb-purple);
+        --grad:var(--bmb-purple); --accent:var(--bmb-purple);}
   body{background:var(--ink) !important; color:var(--paper);}
   h1,h2,h3{font-family:'Unbounded',sans-serif !important; letter-spacing:-0.01em !important;}
   .label{color:var(--amber) !important;}
@@ -157,7 +157,7 @@
   @media (max-width:900px){
     .bmb-nav{position:relative;} .bmb-burger{display:flex;} .bmb-cta{margin-left:auto; padding:9px 14px; font-size:.8rem;}
     .bmb-nav ul{display:none;} .bmb-brand img{height:50px; width:50px;}
-    .bmb-head.open .bmb-nav ul{display:flex; flex-direction:column; gap:0; position:absolute; top:100%; left:0; right:0; background:#0a0a0a; border-bottom:1px solid var(--line); padding:6px 24px 16px;}
+    .bmb-head.open .bmb-nav ul{display:flex; flex-direction:column; gap:0; position:absolute; top:100%; left:0; right:0; background:var(--bmb-midnight); border-bottom:1px solid var(--line); padding:6px 24px 16px;}
     .bmb-head.open .bmb-nav ul li{border-bottom:1px solid var(--line);} .bmb-head.open .bmb-nav ul li:last-child{border:0;}
     .bmb-head.open .bmb-nav ul a{display:block; padding:14px 2px; font-size:1rem;}
   }
@@ -184,7 +184,7 @@
     <button class="bmb-burger" type="button" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')"><span></span><span></span><span></span></button>
   </div>
 </header>
-<section class="wrap" style="max-width:860px;">
+<div class="pearl"><section class="wrap" style="max-width:860px;">
   <span class="kicker">Contact</span>
   <h1 class="sec-title">Demandez <span class="grad-text">une proposition</span></h1>
   <p class="lead">Dites-nous en plus sur votre événement : nous revenons vers vous sous 24 h avec les disponibilités et une proposition adaptée.</p>
@@ -201,7 +201,7 @@
     <p class="msg" id="msg" role="status"></p>
     <p class="note">* Champs obligatoires. Réponse sous 24 h. Cette demande ne vaut pas confirmation de réservation. Vous pouvez aussi nous appeler au <a href="tel:+33631949653">+33 6 31 94 96 53</a>.</p>
   </form>
-</section>
+</section></div>
 <footer class="bmb-foot">
   <div class="bmb-foot-in">
     <img src="bmb-logo-sm.jpg" alt="Book My Band">

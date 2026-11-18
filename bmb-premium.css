@@ -1,115 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap');
-/* Book My Band — couche « Live Booking Experience » (accueil, catalogue, fiches) */
-:focus-visible{outline:3px solid #fff; outline-offset:3px; border-radius:4px}
-/* Badge exclusivité */
-.excl{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:#ff8a1f; color:#0a0a0a; padding:6px 10px; border-radius:3px}
-.pass .excl{position:absolute; left:12px; top:46px; z-index:3}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap');
+/* Book My Band — identité MIDNIGHT ELECTRIC (référence graphique de tout le site)
+   Toutes les couleurs passent par les variables --bmb-* ci-dessous. */
+:root{
+  --bmb-midnight:#0B0D17; --bmb-navy:#181B2D; --bmb-purple:#8056F5; --bmb-purple-hover:#9066FF; --bmb-purple-text:#6B44E0;
+  --bmb-lavender:#D8B7FF; --bmb-pearl:#F7F6FA; --bmb-white:#FFFFFF; --bmb-muted:#B8B8CC; --bmb-line:rgba(184,184,204,.18);
+  --bmb-field-line:rgba(184,184,204,.28); --bmb-field-line-light:#C9C9D6; --bmb-error:#FF8FA3;
+  --bmb-font-title:'Space Grotesk',system-ui,sans-serif; --bmb-font-body:'Inter',system-ui,sans-serif;
+  --bmb-radius:8px; --bmb-radius-card:10px; --bmb-t:.3s; --bmb-hdr:74px;
+  /* variables historiques utilisées par les styles propres à chaque page */
+  --ink:var(--bmb-midnight); --ink-2:var(--bmb-navy); --paper:var(--bmb-pearl); --muted:var(--bmb-muted); --line:var(--bmb-line);
+  --grad:var(--bmb-purple); --accent:var(--bmb-purple); --amber:var(--bmb-lavender); --pink:var(--bmb-purple); --gold:var(--bmb-lavender); --violet:var(--bmb-purple); --blue:var(--bmb-lavender);
+}
+:focus-visible{outline:3px solid var(--bmb-lavender); outline-offset:3px; border-radius:4px}
+html{scroll-behavior:smooth}
+body{background:var(--bmb-midnight) !important; color:var(--bmb-white) !important; font-family:var(--bmb-font-body) !important}
+p,li,label,input,select,textarea,button,summary,.lead,.stub p,.faq-it p{font-family:var(--bmb-font-body)}
+h1,h2,h3,h4,.sec-title,.pass h3,.cat b,.band h2,.bmb-foot h4,.tl h3,.aud h3,.hero2 h1,.feat h3,.cta-band h2{font-family:var(--bmb-font-title) !important; font-weight:700 !important; text-transform:none !important; letter-spacing:-.02em !important}
+.sec-title{font-size:clamp(2rem,4.4vw,3.2rem) !important; line-height:1.1 !important}
+.hero2 h1{font-size:clamp(2.4rem,6.4vw,5rem) !important; line-height:1.05 !important; max-width:16ch !important}
+.page-hero h1{font-size:clamp(2.2rem,5.4vw,4rem) !important; line-height:1.08 !important}
+.section-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem) !important}
+.pass h3{font-size:1.3rem !important; line-height:1.15 !important} .cat b{font-size:1.3rem !important} .band h2{font-size:clamp(2rem,5vw,3.4rem) !important; line-height:1.08 !important}
+.tl h3,.aud h3,.feat h3{font-size:1.25rem !important}
+.kicker,.label,.breadcrumb,.pass .tag,.cat .lbl,.feat .ft{font-family:var(--bmb-font-body) !important; font-weight:600 !important; letter-spacing:.16em !important; text-transform:uppercase}
+.kicker,.label{color:var(--bmb-lavender) !important; font-size:.78rem !important}
+.grad-text{background:none !important; -webkit-text-fill-color:var(--bmb-lavender); color:var(--bmb-lavender) !important}
+
+/* ----- Boutons ----- */
+.btn,.bmb-cta,.filters button{display:inline-flex; align-items:center; justify-content:center; min-height:48px; border-radius:var(--bmb-radius) !important; font-family:var(--bmb-font-body) !important; font-weight:600 !important; font-size:.95rem !important; letter-spacing:0 !important; text-transform:none !important; transition:transform var(--bmb-t) ease, background var(--bmb-t) ease, border-color var(--bmb-t) ease !important; transform:none !important}
+.btn:hover,.bmb-cta:hover{transform:translateY(-2px) !important; filter:none !important}
+.btn-grad,.btn-primary,.bmb-cta{background:var(--bmb-purple) !important; color:var(--bmb-white) !important; border:0 !important; box-shadow:none !important}
+.btn-grad:hover,.btn-primary:hover,.bmb-cta:hover{background:var(--bmb-purple-hover) !important}
+.btn-ghost{border:1.5px solid var(--bmb-lavender) !important; color:var(--bmb-white) !important; background:transparent !important}
+.btn-ghost:hover{background:rgba(216,183,255,.12) !important}
+.bmb-cta{padding:0 20px !important; min-height:42px; font-size:.88rem !important}
+
+/* ----- Badge Exclusivité ----- */
+.excl{display:inline-block; font-family:var(--bmb-font-body); font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; background:var(--bmb-lavender); color:var(--bmb-midnight); padding:5px 9px; border-radius:4px}
+.pass .excl{position:absolute; left:12px; top:12px; z-index:3}
 .page-hero-inner .excl{margin-bottom:14px}
-/* Hero accueil */
-.hero2{position:relative; min-height:min(92vh,860px); display:flex; align-items:flex-end; overflow:hidden; isolation:isolate; background:#0a0a0a}
+
+/* ----- Header : transparent en haut, minuit au défilement ----- */
+.bmb-head{position:fixed !important; left:0; right:0; top:0; z-index:50; background:transparent !important; border-bottom:1px solid transparent !important; backdrop-filter:none !important; transition:background var(--bmb-t) ease, border-color var(--bmb-t) ease}
+.bmb-head.scrolled,.bmb-head.open{background:var(--bmb-midnight) !important; border-bottom-color:var(--bmb-line) !important}
+.bmb-nav ul a{font-family:var(--bmb-font-body) !important; font-size:.9rem !important; font-weight:500 !important; text-transform:none; letter-spacing:0; color:var(--bmb-white) !important; padding:6px 0; border-bottom:2px solid transparent; transition:color var(--bmb-t)}
+.bmb-nav ul a:hover{color:var(--bmb-lavender) !important}
+.bmb-nav ul a.on{background:none !important; -webkit-text-fill-color:var(--bmb-lavender); color:var(--bmb-lavender) !important; border-bottom-color:var(--bmb-purple)}
+.bmb-burger{border-color:var(--bmb-line) !important}
+@media (max-width:760px){.bmb-head.open .bmb-nav ul{background:var(--bmb-midnight) !important; border-bottom:1px solid var(--bmb-line) !important}}
+.page-hero{padding-top:calc(var(--bmb-hdr) + 36px) !important}
+.bmb-foot{background:var(--bmb-midnight) !important; border-top:1px solid var(--bmb-line) !important}
+.bmb-foot h4{font-size:1rem !important; color:var(--bmb-white) !important}
+.bmb-foot a{color:var(--bmb-muted) !important} .bmb-foot a:hover{color:var(--bmb-lavender) !important}
+.bmb-legal{color:var(--bmb-muted) !important}
+
+/* ----- Hero accueil ----- */
+.hero2{position:relative; min-height:min(92vh,860px); display:flex; align-items:flex-end; overflow:hidden; isolation:isolate; background:var(--bmb-midnight)}
 .hero2 .slides{position:absolute; inset:0; z-index:-2}
-.hero2 .slides img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.6s ease; filter:grayscale(1) contrast(1.1) brightness(.75)}
+.hero2 .slides img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.6s ease; filter:none}
 .hero2 .slides img.on{opacity:1}
-.hero2 .slides::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.55}
-.hero2::before{content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,#0a0a0a 4%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.35) 100%),linear-gradient(90deg,rgba(10,10,10,.75) 0%,rgba(10,10,10,0) 70%)}
-.hero2-in{width:100%; max-width:1220px; margin:0 auto; padding:140px 24px 72px}
-.hero2 h1{font-family:'Unbounded',sans-serif; font-weight:900; font-size:clamp(2.1rem,5.6vw,4.6rem); line-height:1.02; letter-spacing:-.02em; text-transform:uppercase; max-width:17ch; margin:14px 0 0}
-.hero2 p{color:#e6e6ec; font-size:clamp(1.05rem,1.6vw,1.3rem); max-width:560px; margin:24px 0 32px}
+.hero2 .slides::after{content:none}
+.hero2::before{content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,var(--bmb-midnight) 4%,rgba(11,13,23,.6) 45%,rgba(11,13,23,.4) 100%),linear-gradient(90deg,rgba(11,13,23,.78) 0%,rgba(11,13,23,0) 70%)}
+.hero2-in{width:100%; max-width:1220px; margin:0 auto; padding:150px 24px 72px}
+.hero2 p{color:var(--bmb-muted); font-size:clamp(1.05rem,1.6vw,1.25rem); max-width:560px; margin:24px 0 32px}
 .hero2 .btns{display:flex; flex-wrap:wrap; gap:14px}
-.hero2 .btn{padding:18px 34px; text-transform:uppercase; letter-spacing:.06em; font-size:.88rem}
-@media (max-width:700px){.hero2{min-height:88vh}.hero2-in{padding:120px 20px 48px}.hero2 .slides img{object-position:center 30%}}
-/* Univers : tuiles photo plein cadre */
+.hero2 .btn{padding:0 30px; min-height:52px}
+@media (max-width:700px){.hero2{min-height:88vh}.hero2-in{padding:130px 20px 48px}.hero2 .slides img{object-position:center 30%}}
+
+/* ----- Cartes artiste 3:4 (catalogue, univers, à l'affiche) ----- */
+.grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr)) !important}
+.pass{--n:0px; aspect-ratio:3/4 !important; border-radius:var(--bmb-radius-card) !important; background:var(--bmb-navy) !important; -webkit-mask:none !important; mask:none !important; transform:none !important; transition:none !important}
+.pass:hover{transform:none !important}
+.pass .ph{inset:0 !important}
+.pass .ph img{filter:none !important; transition:transform .45s ease !important}
+.pass:hover .ph img{transform:scale(1.04) !important}
+.pass .ph::after{content:''; background:linear-gradient(0deg,rgba(11,13,23,.94) 0%,rgba(11,13,23,.55) 28%,rgba(11,13,23,0) 58%) !important; mix-blend-mode:normal !important; opacity:1 !important}
+.pass:hover .ph::after{opacity:1 !important}
+.pass .num,.pass .bar{display:none !important}
+.pass{display:flex !important; flex-direction:column; justify-content:flex-end}
+.pass .stub{position:relative !important; inset:auto !important; height:auto !important; padding:0 18px 16px !important; background:none !important; border:0 !important; gap:4px}
+.pass .tag{position:relative !important; top:auto !important; left:auto !important; margin:0 18px 4px; align-self:flex-start; background:none !important; color:var(--bmb-lavender) !important; padding:0 !important; font-size:.75rem !important; border-radius:0 !important; z-index:2}
+.pass p{display:none !important}
+.pass .row{margin-top:6px}
+.pass .cta{font-family:var(--bmb-font-body) !important; font-size:.82rem !important; letter-spacing:0 !important; text-transform:none !important; font-weight:600; color:var(--bmb-white)}
+.pass .cta b{background:none !important; -webkit-text-fill-color:var(--bmb-white); color:var(--bmb-white) !important}
+@media (hover:none){.pass .ph::after{opacity:1 !important}}
+@media (max-width:640px){.grid{grid-template-columns:1fr 1fr !important}.pass .stub{padding:0 12px 12px !important}.pass h3{font-size:1rem !important}.pass .tag{margin-left:12px}}
+
+/* ----- Univers : tuiles photo ----- */
 .cats{grid-template-columns:repeat(auto-fit,minmax(168px,1fr)) !important; gap:14px !important}
-.cat{min-height:340px !important; padding:22px !important; justify-content:flex-end !important; border-radius:8px !important}
-.cat::before{z-index:3}
+.cat{min-height:340px !important; padding:20px !important; justify-content:flex-end !important; border-radius:var(--bmb-radius-card) !important; background:var(--bmb-navy) !important; border:0 !important}
+.cat::before{content:none !important}
 .cat .av{position:absolute !important; inset:0; margin:0 !important; display:block !important; z-index:0}
-.cat .av img{position:absolute; inset:0; width:100% !important; height:100% !important; object-fit:cover; border-radius:0 !important; margin:0 !important; filter:grayscale(1) contrast(1.1) brightness(.7); transition:transform .8s ease, filter .5s}
+.cat .av img{position:absolute; inset:0; width:100% !important; height:100% !important; object-fit:cover; border-radius:0 !important; margin:0 !important; filter:none !important; transition:transform .45s ease}
 .cat .av img+img{display:none}
-.cat::after{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg,#0a0a0a 5%,rgba(10,10,10,.2) 65%)}
-.cat:hover .av img{transform:scale(1.08); filter:none}
+.cat::after{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg,rgba(11,13,23,.94) 0%,rgba(11,13,23,.55) 28%,rgba(11,13,23,0) 58%)}
+.cat:hover .av img{transform:scale(1.04)}
 .cat .cnt,.cat b,.cat .lbl{position:relative; z-index:2}
-.cat .cnt{top:14px !important; -webkit-text-stroke:1.4px rgba(255,255,255,.7) !important}
-.cat .lbl{font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:#ffb27a}
-/* Artistes à l'affiche */
-.feat{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin-top:34px}
-.feat article{position:relative; background:#131313; border:1px solid var(--line); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; transition:transform .35s, border-color .35s}
-.feat article:hover{transform:translateY(-6px); border-color:#ff2d6f}
-.feat .fp{position:relative; aspect-ratio:4/3; overflow:hidden; background:#1b1b1b}
-.feat .fp img{width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(1.1) brightness(.9); transition:filter .5s, transform .7s}
-.feat article:hover .fp img{filter:none; transform:scale(1.05)}
-.feat .fp::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.8; transition:opacity .5s; pointer-events:none}
-.feat article:hover .fp::after{opacity:0}
+.cat .cnt{display:none !important}
+.cat .lbl{font-size:.72rem; color:var(--bmb-lavender)}
+
+/* ----- À l'affiche ----- */
+.feat{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; margin-top:34px}
+.feat article{position:relative; background:var(--bmb-navy) !important; border:1px solid var(--bmb-line) !important; border-radius:var(--bmb-radius-card) !important; overflow:hidden; display:flex; flex-direction:column; transition:transform var(--bmb-t) ease, border-color var(--bmb-t) ease}
+.feat article:hover{transform:translateY(-4px); border-color:var(--bmb-purple) !important}
+.feat .fp{position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--bmb-navy)}
+.feat .fp img{width:100%; height:100%; object-fit:cover; filter:none !important; transition:transform .45s ease}
+.feat article:hover .fp img{transform:scale(1.04)}
+.feat .fp::after{content:none !important}
 .feat .fp .excl{position:absolute; left:12px; top:12px; z-index:2}
-.feat .fb{padding:22px; display:flex; flex-direction:column; gap:10px; flex:1}
-.feat .ft{font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--amber)}
-.feat h3{font-size:1.25rem; text-transform:uppercase; line-height:1.15}
-.feat p{color:var(--muted); font-size:.95rem; line-height:1.55; flex:1}
+.feat .fb{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1}
+.feat .ft{font-size:.72rem; color:var(--bmb-lavender)}
+.feat p{color:var(--bmb-muted); font-size:.95rem; line-height:1.55; flex:1}
 .feat .fa{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
-.feat .fa .btn{padding:12px 18px; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em}
-/* Trouvez votre spectacle */
-.finder{background:#131313; border:1px solid var(--line); border-left:4px solid #ff2d6f; border-radius:6px; padding:34px; margin-top:28px; display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; align-items:end}
-.finder label{display:flex; flex-direction:column; gap:8px; font-weight:700; font-size:.85rem}
-.finder input,.finder select{min-height:48px; background:#0a0a0a; color:#fff; border:1px solid rgba(255,255,255,.28); border-radius:6px; padding:0 12px; font:inherit; font-weight:500}
-.finder .btn{border:0; cursor:pointer; min-height:48px}
-.finder-note{grid-column:1/-1; color:var(--muted); font-size:.85rem}
+.feat .fa .btn{min-height:42px; padding:0 18px; font-size:.85rem !important}
+
+/* ----- Assistant « Trouvez votre spectacle » ----- */
+.finder{background:var(--bmb-navy) !important; border:1px solid var(--bmb-line) !important; border-radius:var(--bmb-radius-card) !important; padding:32px; margin-top:28px; display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; align-items:end}
+.finder label{display:flex; flex-direction:column; gap:8px; font-weight:600; font-size:.85rem; color:var(--bmb-white)}
+.finder .btn{border:0; cursor:pointer}
+.finder-note{grid-column:1/-1; color:var(--bmb-muted); font-size:.85rem}
 #finder-res{margin-top:26px}
 #finder-res .grid{margin-top:16px}
 #finder-res .res-cta{margin-top:22px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
-/* Catalogue : recherche + tri */
+
+/* ----- Catalogue : recherche, tri, filtres ----- */
 .cat-tools{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
-.cat-tools input,.cat-tools select{min-height:46px; background:#131313; color:#fff; border:1px solid rgba(255,255,255,.28); border-radius:40px; padding:0 18px; font:inherit; font-size:.95rem}
 .cat-tools input{flex:1 1 260px}
+.filters button{background:var(--bmb-navy) !important; border:1px solid var(--bmb-line) !important; color:var(--bmb-white) !important; min-height:40px; padding:0 18px; border-radius:999px !important; font-size:.85rem !important; cursor:pointer}
+.filters button:hover{border-color:var(--bmb-lavender) !important}
+.filters button.on{background:var(--bmb-purple) !important; border-color:var(--bmb-purple) !important; color:var(--bmb-white) !important}
 .pass.nomatch{display:none}
-.no-res{color:var(--muted); margin-top:28px}
-/* Fiches : barre mobile */
+.no-res{color:var(--bmb-muted); margin-top:28px}
+.marquee .o{-webkit-text-stroke:1.2px rgba(216,183,255,.55) !important}
+.marquee .g{background:none !important; color:var(--bmb-lavender) !important; -webkit-text-fill-color:var(--bmb-lavender)}
+.marquee em{color:var(--bmb-purple) !important}
+.marquee span{font-family:var(--bmb-font-title) !important; font-weight:700 !important}
+
+/* ----- Champs de formulaire (sombres par défaut) ----- */
+.cat-tools input,.cat-tools select,.finder input,.finder select,.form input,.form select,.form textarea{min-height:48px; border-radius:var(--bmb-radius) !important; background:var(--bmb-navy) !important; border:1px solid var(--bmb-field-line) !important; color:var(--bmb-white) !important; padding:0 14px; font:inherit; font-size:.95rem; font-weight:400; text-transform:none; letter-spacing:0}
+.form textarea{padding:12px 14px; min-height:120px}
+.cat-tools input,.cat-tools select{border-radius:999px !important}
+.cat-tools input,.cat-tools select,.finder input,.finder select,.form input,.form select,.form textarea{transition:border-color var(--bmb-t) ease}
+.form input:focus,.form select:focus,.form textarea:focus,.finder input:focus,.finder select:focus,.cat-tools input:focus,.cat-tools select:focus{outline:3px solid var(--bmb-purple) !important; outline-offset:1px; border-color:var(--bmb-purple) !important}
+.form{background:var(--bmb-navy) !important; border:1px solid var(--bmb-line) !important; border-radius:var(--bmb-radius-card) !important}
+.form label{color:var(--bmb-white) !important; font-size:.85rem !important; font-weight:600 !important; letter-spacing:0 !important; text-transform:none !important}
+.form .note,.form .msg{color:var(--bmb-muted) !important}
+.form a{color:var(--bmb-lavender)}
+
+/* ----- Sections Pearl (fond clair) : parcours de réservation et FAQ ----- */
+.pearl{background:var(--bmb-pearl); color:var(--bmb-midnight); margin-top:var(--bmb-hdr)}
+.pearl .kicker,.pearl .grad-text{color:var(--bmb-purple-text) !important; -webkit-text-fill-color:var(--bmb-purple-text)}
+.pearl .sec-title,.pearl h1,.pearl h2,.pearl h3{color:var(--bmb-midnight) !important}
+.pearl .lead,.pearl p{color:#4A4A5E}
+.pearl .form{background:var(--bmb-white) !important; border:1px solid var(--bmb-field-line-light) !important}
+.pearl .form label{color:var(--bmb-midnight) !important}
+.pearl .form input,.pearl .form select,.pearl .form textarea{background:var(--bmb-white) !important; border:1px solid var(--bmb-field-line-light) !important; color:var(--bmb-midnight) !important}
+.pearl .form .note,.pearl .form .msg{color:#4A4A5E !important}
+.pearl .form a{color:var(--bmb-purple-text)}
+.pearl .form input:focus,.pearl .form select:focus,.pearl .form textarea:focus{border-color:var(--bmb-purple) !important}
+
+/* ----- Surfaces ----- */
+.band,.faq-it,.aud div,.info-item,.hero-banner,.cta-band{border-radius:var(--bmb-radius-card) !important}
+.band{background:var(--bmb-navy) !important; border:1px solid var(--bmb-line) !important}
+.faq-it,.info-item{background:var(--bmb-navy) !important; border-color:var(--bmb-line) !important}
+.cta-band{background:var(--bmb-navy) !important; border-top:1px solid var(--bmb-line) !important}
+.bmb-hero-img::after{background:linear-gradient(90deg,var(--bmb-midnight),transparent) !important; mix-blend-mode:normal !important; opacity:.6 !important}
+.bmb-hero-img img{filter:none !important}
+.tl .dot{background:var(--bmb-purple) !important; color:var(--bmb-white) !important}
+.faq-it summary::after{color:var(--bmb-lavender) !important}
+.actu-cal .mm{color:var(--bmb-lavender) !important}
+
+/* ----- Fiches : barre mobile ----- */
 .mbar{display:none}
 @media (max-width:760px){
-  .mbar{position:fixed; left:0; right:0; bottom:0; z-index:60; display:flex; gap:10px; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(10,10,10,.96); border-top:1px solid var(--line)}
-  .mbar a{flex:1; text-align:center; padding:14px 10px; border-radius:40px; font-weight:800; font-size:.85rem; text-decoration:none; color:#fff; border:1px solid rgba(255,255,255,.3)}
-  .mbar a.p{background:#ff2d6f; border-color:#ff2d6f; color:#0a0a0a; flex:2}
+  .mbar{position:fixed; left:0; right:0; bottom:0; z-index:60; display:flex; gap:10px; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(11,13,23,.96); border-top:1px solid var(--bmb-line)}
+  .mbar a{flex:1; text-align:center; padding:14px 10px; border-radius:var(--bmb-radius); font-weight:600; font-size:.9rem; text-decoration:none; color:var(--bmb-white); border:1.5px solid var(--bmb-lavender)}
+  .mbar a.p{background:var(--bmb-purple); border-color:var(--bmb-purple); color:var(--bmb-white); flex:2}
   body.has-mbar .bmb-foot{padding-bottom:90px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important} .hero2 .slides img:not(:first-child){display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important; scroll-behavior:auto !important} .hero2 .slides img:not(:first-child){display:none}}
 
-/* ===== Thème « Live Booking Experience » (aligné sur la maquette) ===== */
-:root{--ink:#0a0a0a !important; --ink-2:#141210 !important; --paper:#f5f2ee !important; --muted:#b3aca4 !important; --line:#2a2522 !important;
-  --grad:#ff2d6f !important; --accent:#ff2d6f !important; --amber:#ff8a1f !important; --pink:#ff2d6f !important; --gold:#ff2d6f !important; --violet:#ff2d6f !important; --blue:#ff8a1f !important}
-body{background:#0a0a0a !important; color:#f5f2ee !important; font-family:'Inter',system-ui,sans-serif !important}
-p,li,label,input,select,textarea,button,summary,.lead,.stub p,.faq-it p{font-family:'Inter',system-ui,sans-serif}
-h1,h2,h3,h4,.sec-title,.pass h3,.cat b,.band h2,.bmb-foot h4,.tl h3,.aud h3,.hero2 h1{font-family:'Anton','Impact','Arial Narrow',sans-serif !important; font-weight:400 !important; text-transform:uppercase; letter-spacing:.01em !important}
-.sec-title{font-size:clamp(2.2rem,5vw,3.6rem) !important; line-height:1.04 !important}
-.hero2 h1{font-size:clamp(3rem,9vw,7.2rem) !important; line-height:1.04 !important; max-width:14ch !important}
-.page-hero h1{font-size:clamp(2.8rem,7vw,5.6rem) !important; line-height:1 !important}
-.section-head h2{font-size:clamp(2rem,4vw,3rem) !important}
-.pass h3{font-size:1.25rem !important} .cat b{font-size:1.3rem !important} .band h2{font-size:clamp(2.4rem,6vw,4.6rem) !important; line-height:1 !important}
-.tl h3,.aud h3{font-size:1.35rem !important}
-.kicker,.label,.pass .tag,.pass .cta,.cat .lbl,.filters button,.excl,.feat .ft,.breadcrumb{font-family:'Inter',system-ui,sans-serif !important; font-weight:600 !important; letter-spacing:.22em !important; text-transform:uppercase}
-.kicker,.label{color:#ff8a1f !important; font-size:.78rem !important}
-.grad-text{background:none !important; -webkit-text-fill-color:#ff2d6f; color:#ff2d6f !important}
-/* Boutons : carrés, texte sombre sur rose */
-.btn,.bmb-cta,.filters button{border-radius:0 !important; text-transform:uppercase; letter-spacing:.08em !important; font-weight:700 !important}
-.btn-grad,.btn-primary,.bmb-cta{background:#ff2d6f !important; color:#0a0a0a !important; border:0 !important}
-.btn-ghost{border:2px solid #f5f2ee !important; color:#f5f2ee !important; background:transparent !important}
-.btn:hover,.bmb-cta:hover{filter:brightness(1.08)}
-.filters button{background:#141210 !important; border:1px solid #2a2522 !important; color:#f5f2ee !important}
-.filters button.on{background:#ff2d6f !important; color:#0a0a0a !important; border-color:#ff2d6f !important}
-.cat-tools input,.cat-tools select,.finder input,.finder select,.form input,.form select,.form textarea{border-radius:0 !important; background:#0a0a0a !important; border:1px solid #6b645d !important; color:#f5f2ee !important}
-/* Navigation et pied de page */
-.bmb-head{background:rgba(10,10,10,.92) !important; border-bottom:1px solid #2a2522 !important}
-.bmb-nav ul a{text-transform:uppercase; letter-spacing:.06em; font-size:.8rem !important; font-weight:600 !important; font-family:'Inter',sans-serif !important}
-.bmb-nav ul a.on{background:none !important; -webkit-text-fill-color:#ff2d6f; color:#ff2d6f !important}
-.bmb-foot{background:#0a0a0a !important; border-top:1px solid #2a2522 !important}
-.bmb-foot h4{font-size:1rem !important; letter-spacing:.06em !important}
-/* Surfaces et cartes : angles droits, fonds de la maquette */
-.band,.cat,.finder,.faq-it,.aud div,.info-item,.feat article,.pass,.photo-grid a,.photo-grid img,.hero-banner{border-radius:0 !important}
-.band{background:#141210 !important; border-left:4px solid #ff2d6f !important; border:1px solid #2a2522 !important; border-left:4px solid #ff2d6f !important}
-.cat,.finder,.faq-it,.feat article,.info-item{background:#141210 !important; border-color:#2a2522 !important}
-.cat::before,.finder{border-left-color:#ff2d6f !important}
-.cat::before{background:#ff2d6f !important}
-.pass .stub{background:#141210 !important}
-.pass .ph::after,.feat .fp::after,.bmb-hero-img::after,.hero2 .slides::after{background:#ff2d6f !important}
-.feat .fp::after{opacity:.35 !important}
-.tl .dot{background:#ff2d6f !important; color:#0a0a0a !important}
-.faq-it summary::after{color:#ff2d6f !important}
-section div[style*="aspect-ratio"]{border-radius:0 !important}
-.mbar a{border-radius:0}
+/* ----- Fiches : contenu du hero aligné sur la grille du site ----- */
+.page-hero{padding-left:max(24px,calc((100vw - 1220px)/2 + 24px)) !important; padding-right:24px !important}
