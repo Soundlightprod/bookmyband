@@ -32,7 +32,7 @@
   .pass:hover{transform:translateY(-6px) rotate(-.6deg);}
   .pass .ph{position:absolute; inset:0 0 36% 0; overflow:hidden;}
   .pass .ph img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(.95); transition:filter .45s, transform .6s;}
-  .pass .ph::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
+  .pass .ph::after{content:''; position:absolute; inset:0; background:#ff2e88; mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
   .pass:hover .ph img{filter:none; transform:scale(1.07);} .pass:hover .ph::after{opacity:0;}
   .pass .tag{position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:#0a0a0a; color:#fff; padding:6px 10px; border-radius:3px;}
   .pass .num{position:absolute; top:10px; right:14px; z-index:2; font-family:'Unbounded',sans-serif; font-weight:900; font-size:1.7rem; line-height:1; color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.9); text-shadow:0 2px 14px rgba(0,0,0,.4);}
@@ -75,7 +75,7 @@
   .pass:hover{transform:translateY(-6px) rotate(-.6deg);}
   .pass .ph{position:absolute; inset:0 0 36% 0; overflow:hidden;}
   .pass .ph img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(.95); transition:filter .45s, transform .6s;}
-  .pass .ph::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
+  .pass .ph::after{content:''; position:absolute; inset:0; background:#ff2e88; mix-blend-mode:color; opacity:.9; transition:opacity .45s;}
   .pass:hover .ph img{filter:none; transform:scale(1.07);} .pass:hover .ph::after{opacity:0;}
   .pass .tag{position:absolute; top:12px; left:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:#0a0a0a; color:#fff; padding:6px 10px; border-radius:3px;}
   .pass .num{position:absolute; top:10px; right:14px; z-index:2; font-family:'Unbounded',sans-serif; font-weight:900; font-size:1.7rem; line-height:1; color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.9); text-shadow:0 2px 14px rgba(0,0,0,.4);}
@@ -116,7 +116,7 @@
   .form .row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .form label{display:flex; flex-direction:column; gap:7px; font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--amber);}
   .form input,.form select,.form textarea{font:inherit; font-size:1rem; text-transform:none; letter-spacing:0; font-weight:500; color:#fff; background:#0d0d0d; border:1px solid var(--line); border-radius:12px; padding:13px 14px;}
-  .form input:focus,.form select:focus,.form textarea:focus{outline:none; border-color:#ff2d55;}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:none; border-color:#ff2e88;}
   .form .note{color:var(--muted); font-size:.86rem;}
   .msg{display:none; padding:14px 16px; border-radius:12px; font-weight:700;} .msg.ok{display:block; background:rgba(40,200,120,.12); border:1px solid rgba(40,200,120,.5); color:#8ff0bd;} .msg.ko{display:block; background:rgba(255,45,85,.12); border:1px solid rgba(255,45,85,.5); color:#ff9db0;}
   .form button.btn{display:block; width:100%; padding:20px 34px; font-size:1.1rem !important; letter-spacing:.02em; border-radius:6px; border:0; font:800 1rem 'Manrope',sans-serif; color:#fff; background:var(--grad); cursor:pointer; align-self:stretch; box-shadow:none;}
@@ -129,13 +129,13 @@
   .bmb-hero-img{position:absolute; top:0; right:0; bottom:0; width:min(48vw,640px); z-index:0; pointer-events:none;
      -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%); mask-image:linear-gradient(90deg,transparent 0%,#000 45%);}
   .bmb-hero-img img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(.8);}
-  .bmb-hero-img::after{content:''; position:absolute; inset:0; background:#ff2d6f; mix-blend-mode:color; opacity:.9;}
+  .bmb-hero-img::after{content:''; position:absolute; inset:0; background:#ff2e88; mix-blend-mode:color; opacity:.9;}
   .bmb-hero-img::before{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg,#0a0a0a 0%,transparent 35%);}
   .page-hero-inner{position:relative; z-index:2;}
   @media (max-width:760px){ .bmb-hero-img{width:100%; opacity:.28; -webkit-mask-image:none; mask-image:none;} }
   :root{--ink:#0a0a0a; --ink-2:#151515; --paper:#ffffff; --muted:#a9a9b3; --line:rgba(255,255,255,0.12);
-        --gold:#ff2d55; --amber:#ff8a1f; --violet:#ff2d55; --blue:#ff6a00; --pink:#ff2d55;
-        --grad:#ff2d6f; --accent:#ff2d6f;}
+        --gold:#ff2e88; --amber:#ff8a1f; --violet:#ff2e88; --blue:#ff6a00; --pink:#ff2e88;
+        --grad:#ff2e88; --accent:#ff2e88;}
   body{background:var(--ink) !important; color:var(--paper);}
   h1,h2,h3{font-family:'Unbounded',sans-serif !important; letter-spacing:-0.01em !important;}
   .label{color:var(--amber) !important;}
@@ -173,13 +173,14 @@
   @media (max-width:760px){ .bmb-foot-in{grid-template-columns:1fr; text-align:center;} .bmb-foot img{margin:0 auto;} }
 
 </style>
+<link rel="stylesheet" href="/bmb-premium.css">
 </head>
 <body>
 <header class="bmb-head">
   <div class="bmb-nav">
     <a href="./" class="bmb-brand"><img src="bmb-logo-sm.jpg" alt="Book My Band"></a>
     <ul><li><a href="./">Accueil</a></li><li><a href="artistes">Nos artistes</a></li><li><a href="./#comment">Comment ça marche</a></li><li><a href="contact" class="on">Contact</a></li></ul>
-    <a href="contact" class="bmb-cta">Réserver un artiste</a>
+    <a href="contact" class="bmb-cta">Demander une proposition</a>
     <button class="bmb-burger" type="button" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')"><span></span><span></span><span></span></button>
   </div>
 </header>
