@@ -1,0 +1,22 @@
+{
+  "_aide": "Fichier d'administration : 'a_laffiche' = slugs des artistes mis en avant sur l'accueil (dans l'ordre) ; 'exclusivites' = badge affiché sur fiches et cartes (slug : libellé).",
+  "a_laffiche": ["tribute-abba", "tribute-calogero", "tribute-matmatah", "tribute-kool-and-the-gang", "panache", "alchimie"],
+  "exclusivites": {
+    "tribute-abba": "Exclusivité France",
+    "tribute-calogero": "Exclusivité",
+    "panache": "Exclusivité",
+    "bim-bam-boom": "Exclusivité",
+    "cache-candy": "Exclusivité",
+    "alchimie": "Exclusivité",
+    "noon-coverband": "Exclusivité",
+    "the-fine-allies": "Exclusivité"
+  },
+  "ambiances": {
+    "tributes": "Concert tribute",
+    "reprises": "Soirée dansante, groupe de reprises",
+    "cabaret": "Spectacle cabaret",
+    "pop": "Pop française",
+    "magie": "Magie et humour",
+    "dj": "DJ et animation"
+  }
+}

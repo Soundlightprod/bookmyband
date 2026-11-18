@@ -228,6 +228,8 @@ F.addEventListener('submit',function(ev){ev.preventDefault(); if(document.getEle
  .catch(function(e){ if(window.slpAS) window.slpAS.captchaReset(); M.className='msg ko'; M.textContent=(e&&e.api&&e.message)?e.message:"Oups, l'envoi n'a pas abouti. Réessayez ou appelez-nous au +33 6 31 94 96 53."; })
  .finally(function(){ B.disabled=false; B.textContent='Envoyer ma demande'; });
 });
+(function(){var P=new URLSearchParams(location.search),m=function(k){return P.get(k)||''};
+ var map={date:'d',lieu:'l',type:'ty',jauge:'j',budget:'bu'};Object.keys(map).forEach(function(k){var e=document.getElementById(map[k]),v=m(k);if(e&&v){if(e.tagName==='SELECT'){for(var i=0;i<e.options.length;i++)if(e.options[i].text===v)e.selectedIndex=i;}else e.value=v;}});})();
 var q=new URLSearchParams(location.search).get('artiste'); if(q){var s=document.getElementById('a'); for(var i=0;i<s.options.length;i++) if(s.options[i].text===q) s.selectedIndex=i;}
 </script>
 <script>

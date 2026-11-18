@@ -83,7 +83,7 @@ def build_page(a):
     desc = (meta.group(1) if meta else a['desc']).replace('SLP', 'Book My Band')
     url = f"https://bookmyband.fr/{a['slug']}"
     img_abs = f"https://bookmyband.fr/{a['img']}"
-    head_tpl = tpl[:tpl.index('<style>')]
+    head_tpl = tpl[:tpl.index('<style>')]  # contient déjà le lien vers bmb-premium.css
     head_tpl = re.sub(r'<title>.*?</title>', f'<title>{H.escape(title)}</title>', head_tpl)
     head_tpl = re.sub(r'(<meta (?:name|property)="(?:description|og:description)" content=")[^"]*', lambda m: m.group(1) + H.escape(desc, quote=True), head_tpl)
     head_tpl = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m.group(1) + H.escape(title, quote=True), head_tpl)
@@ -135,7 +135,7 @@ def build_page(a):
     # bloc de mise en page compacte commun à toutes les fiches (repris du gabarit)
     compact = re.search(r'<style>\s*/\* artist-compact:start \*/.*?/\* artist-compact:end \*/\s*</style>', tpl, re.S)
     compact = compact.group(0) + '\n' if compact else ''
-    page = head_tpl + style + header + content + cta + footer + '\n'.join(scripts) + '\n' + track + '\n' + compact + '</body>\n</html>\n'
+    page = head_tpl + style + header + content + cta + footer + '\n'.join(scripts) + '\n' + track + '\n' + compact + '<script src="/bmb-premium.js" defer></script>\n</body>\n</html>\n'
     write(BMB / f"{a['slug']}.html", page)
 
     # Images locales référencées

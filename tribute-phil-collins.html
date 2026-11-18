@@ -222,6 +222,7 @@
   .bio-text{align-self:center;}
   @media (max-width:700px){ .bio-wrap{grid-template-columns:1fr !important; gap:28px !important;} .bio-wrap .logo-frame.ph-frame{min-height:0; aspect-ratio:4/3;} }
 </style>
+<link rel="stylesheet" href="/bmb-premium.css">
 </head>
 <body>
 <header class="bmb-head">
@@ -431,6 +432,7 @@ document.querySelectorAll('.photo-grid a').forEach(function(a){
   (function(){try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem("slp_notrack","1");if(/[?&]notrack=0/.test(location.search))localStorage.removeItem("slp_notrack");if(localStorage.getItem("slp_notrack"))return Promise.resolve();}catch(e){}return fetch.apply(window,arguments);})("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"tribute-phil-collins",session_id:sid,site:"bmb",ref:(function(){try{var q=new URLSearchParams(location.search),s=q.get("utm_source")||(q.get("utm_medium")==="email"?"email":"");if(s){var c=(q.get("utm_campaign")||"").toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,50);return "https://emailing-"+s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")+(c?"."+c:"")+"/";}}catch(e){}return document.referrer;})()})}).catch(function(){});
 })();
 </script>
+<script src="/bmb-premium.js" defer></script>
 </body>
 <style>
 /* artist-compact:start */

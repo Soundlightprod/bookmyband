@@ -232,6 +232,7 @@
   .bio-text{align-self:center;}
   @media (max-width:700px){ .bio-wrap{grid-template-columns:1fr !important; gap:28px !important;} .bio-wrap .logo-frame.ph-frame{min-height:0; aspect-ratio:4/3;} }
 </style>
+<link rel="stylesheet" href="/bmb-premium.css">
 </head>
 <body>
 <header class="bmb-head">
@@ -477,6 +478,7 @@ document.querySelectorAll('.photo-grid a').forEach(function(a){
   fetch("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"noon-coverband",session_id:sid,site:"bmb",ref:document.referrer})}).catch(function(){});
 })();
 </script>
+<script src="/bmb-premium.js" defer></script>
 </body>
 <style>
 /* artist-compact:start */

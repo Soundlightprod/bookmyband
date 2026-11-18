@@ -160,6 +160,7 @@
   .faq-it p{color:rgba(255,255,255,.7); margin:0 0 16px; line-height:1.6;}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce qu'un tribute ?", "acceptedAnswer": {"@type": "Answer", "text": "Un tribute est un spectacle hommage : des musiciens professionnels reprennent sur scène, en live, le répertoire d'un artiste ou d'un groupe célèbre, en respectant son son, ses arrangements et l'esprit de ses concerts."}}, {"@type": "Question", "name": "Quels tributes pouvez-vous programmer ?", "acceptedAnswer": {"@type": "Answer", "text": "Tribute ABBA, tribute Calogero, tribute Bee Gees, tribute Phil Collins, tribute Kool & the Gang, tribute Matmatah, tribute Balavoine et tribute Barry White. Le catalogue s'enrichit régulièrement."}}, {"@type": "Question", "name": "Les tributes sont-ils joués 100 % en live ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Tous nos tributes sont joués en live par des musiciens professionnels, sans playback."}}, {"@type": "Question", "name": "Pour quels événements réserver un tribute ?", "acceptedAnswer": {"@type": "Answer", "text": "Festivités et fêtes de village, saisons culturelles, festivals, marchés gourmands, galas, soirées d'entreprise, soirées privées ou événements ponctuels."}}, {"@type": "Question", "name": "Intervenez-vous partout en France ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, partout en France. La sonorisation et l'éclairage peuvent être fournis avec le spectacle."}}, {"@type": "Question", "name": "Comment réserver un tribute ?", "acceptedAnswer": {"@type": "Answer", "text": "Contactez-nous avec la date, le lieu et le type d'événement : nous vérifions la disponibilité et vous envoyons un devis gratuit et sans engagement."}}]}</script>
+<link rel="stylesheet" href="/bmb-premium.css">
 </head>
 <body>
 <header class="bmb-head">
@@ -170,25 +171,42 @@
     <button class="bmb-burger" type="button" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')"><span></span><span></span><span></span></button>
   </div>
 </header>
-<section class="hero">
-  <div class="glow1"></div><div class="glow2"></div>
-  <div class="hero-in">
-    <img class="hero-banner" src="bmb-banniere.jpg" srcset="bmb-banniere-900.jpg 900w, bmb-banniere.jpg 1600w" sizes="(max-width:1260px) 100vw, 1220px" width="1600" height="667" alt="Book My Band — Réservez votre groupe. Vivez la musique.">
-    <div class="hero-txt">
-      <span class="kicker">Réservation d'artistes · partout en France</span>
-      <h1 style="margin-top:14px;">La scène <span class="grad-text">parfaite</span> pour votre événement.</h1>
-      <p>Tributes, groupes live, cabarets et DJ. Découvrez les spectacles qui feront vibrer votre public.</p>
-      <div class="btns"><a class="btn btn-grad" href="artistes">Découvrir nos artistes</a><a class="btn btn-ghost" href="contact">Demander une proposition</a></div>
-    </div>
+<section class="hero2" aria-label="Book My Band">
+  <div class="slides" aria-hidden="true"><img class="on" src="abba-photo-1.jpg" alt="" fetchpriority="high"><img src="calo-photo-1.jpg" alt="" loading="lazy"><img src="cache-candy-live-1.jpg" alt="" loading="lazy"><img src="clement-blouin-photo-1.jpg" alt="" loading="lazy"></div>
+  <div class="hero2-in">
+    <span class="kicker">Tributes · Groupes live · Cabarets · DJ</span>
+    <h1>La scène <span class="grad-text">parfaite</span> pour votre événement.</h1>
+    <p>Tributes, groupes live, cabarets et DJ. Découvrez les spectacles qui feront vibrer votre public.</p>
+    <div class="btns"><a class="btn btn-grad" href="artistes">Découvrir nos artistes</a><a class="btn btn-ghost" href="contact">Demander une proposition</a></div>
   </div>
 </section>
 <section class="wrap" style="padding-top:40px;">
-  <span class="kicker">Catégories</span>
+  <span class="kicker">Les univers artistiques</span>
   <h2 class="sec-title">Quelle <span class="grad-text">ambiance</span> pour votre soirée ?</h2>
   <div class="cats"><a class="cat" href="artistes#tributes"><span class="cnt">09</span><b>Tributes</b><span class="av"><img src="abba-photo-1.jpg" alt="" style="object-position:center 45%"><img src="calo-photo-1.jpg" alt="" style="object-position:center 40%"></span><span class="lbl">9 artistes →</span></a><a class="cat" href="artistes#cabaret"><span class="cnt">02</span><b>Spectacles Cabaret</b><span class="av"><img src="panache-video-photo.png" alt=""></span><span class="lbl">2 artistes →</span></a><a class="cat" href="artistes#pop"><span class="cnt">01</span><b>Pop Française</b><span class="av"><img src="cache-candy-photo-cropped.jpg" alt=""></span><span class="lbl">1 artiste →</span></a><a class="cat" href="artistes#reprises"><span class="cnt">04</span><b>Groupes de reprises</b><span class="av"><img src="alchimie-carre.jpg" alt="" style="object-position:center top"><img src="noon-coverband-photo-1.jpg" alt=""><img src="fine-allies-photo-1.jpg" alt=""></span><span class="lbl">4 artistes →</span></a><a class="cat" href="artistes#magie"><span class="cnt">01</span><b>Magie</b><span class="av"><img src="clement-blouin-photo-1.jpg" alt="" style="object-position:center 25%"></span><span class="lbl">1 artiste →</span></a><a class="cat" href="artistes#dj"><span class="cnt">01</span><b>DJ</b><span class="av"><img src="dj-photo.jpg" alt=""></span><span class="lbl">1 artiste →</span></a></div>
 </section>
+<section class="wrap" id="affiche" style="padding-top:20px;">
+  <span class="kicker">À l'affiche</span>
+  <h2 class="sec-title">Les artistes qui <span class="grad-text">font vibrer</span></h2>
+  <div class="feat" id="featured-grid"></div>
+</section>
+<section class="wrap" id="trouvez" style="padding-top:20px;">
+  <span class="kicker">Trouvez votre spectacle</span>
+  <h2 class="sec-title">Dites-nous l'événement, <span class="grad-text">nous vous orientons</span></h2>
+  <form class="finder" id="finder">
+    <label>Type d'événement<select id="fi-type"><option value="">À préciser</option><option>Mairie / collectivité</option><option>Festival</option><option>Entreprise / CSE</option><option>Mariage / fête privée</option><option>Association / comité des fêtes</option></select></label>
+    <label>Ambiance recherchée<select id="fi-amb"><option value="">Toutes les ambiances</option></select></label>
+    <label>Jauge estimée<input id="fi-jauge" placeholder="ex. 300 personnes"></label>
+    <label>Région ou lieu<input id="fi-lieu" placeholder="ex. Nouvelle-Aquitaine"></label>
+    <label>Date (facultatif)<input id="fi-date" placeholder="ex. 15 juin 2027"></label>
+    <label>Budget indicatif (facultatif)<input id="fi-budget" placeholder="ex. 3 000 €"></label>
+    <button class="btn btn-grad" type="submit">Voir la sélection</button>
+    <p class="finder-note">La sélection s'appuie sur les catégories du catalogue. Aucune disponibilité ni tarif n'est affiché : notre équipe vous répond sous 24 h avec une proposition adaptée.</p>
+  </form>
+  <div id="finder-res" aria-live="polite"></div>
+</section>
 <section class="wrap" style="padding-top:20px;">
-  <span class="kicker">Le line-up</span>
+  <span class="kicker">Le catalogue</span>
   <h2 class="sec-title">Nos <span class="grad-text">artistes</span></h2>
   <p class="lead">Une sélection d'artistes prêts à faire vibrer vos mariages, galas, festivals, concerts dans votre ville en intérieur ou en extérieur, programmations culturelles et soirées d'entreprise.</p>
   <div class="marquee" aria-hidden="true"><div class="trk"><span class="o">Cache Candy</span><em>★</em><span class="g">Tribute ABBA</span><em>★</em><span class="o">Tribute Calogero</span><em>★</em><span class="g">Panache</span><em>★</em><span class="o">Alchimie</span><em>★</em><span class="g">The Fine Allies</span><em>★</em><span class="o">NooN Coverband</span><em>★</em><span class="g">DJ Animation</span><em>★</em><span class="o">Tribute Matmatah</span><em>★</em><span class="g">Tribute Kool &amp; the Gang</span><em>★</em><span class="o">Bim Bam Boom</span><em>★</em><span class="g">Tribute Bee Gees</span><em>★</em><span class="o">Tribute Phil Collins</span><em>★</em><span class="g">Tribute Balavoine</span><em>★</em><span class="o">Tribute Barry White</span><em>★</em><span class="g">Tribute Céline Dion</span><em>★</em><span class="o">Tékila The Band</span><em>★</em><span class="g">Clément Blouin — Magicien</span><em>★</em><span class="o">Cache Candy</span><em>★</em><span class="g">Tribute ABBA</span><em>★</em><span class="o">Tribute Calogero</span><em>★</em><span class="g">Panache</span><em>★</em><span class="o">Alchimie</span><em>★</em><span class="g">The Fine Allies</span><em>★</em><span class="o">NooN Coverband</span><em>★</em><span class="g">DJ Animation</span><em>★</em><span class="o">Tribute Matmatah</span><em>★</em><span class="g">Tribute Kool &amp; the Gang</span><em>★</em><span class="o">Bim Bam Boom</span><em>★</em><span class="g">Tribute Bee Gees</span><em>★</em><span class="o">Tribute Phil Collins</span><em>★</em><span class="g">Tribute Balavoine</span><em>★</em><span class="o">Tribute Barry White</span><em>★</em><span class="g">Tribute Céline Dion</span><em>★</em><span class="o">Tékila The Band</span><em>★</em><span class="g">Clément Blouin — Magicien</span><em>★</em></div></div>
@@ -270,5 +288,6 @@
   (function(){try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem("slp_notrack","1");if(/[?&]notrack=0/.test(location.search))localStorage.removeItem("slp_notrack");if(localStorage.getItem("slp_notrack"))return Promise.resolve();}catch(e){}return fetch.apply(window,arguments);})("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"index",session_id:sid,site:"bmb",ref:(function(){try{var q=new URLSearchParams(location.search),s=q.get("utm_source")||(q.get("utm_medium")==="email"?"email":"");if(s){var c=(q.get("utm_campaign")||"").toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,50);return "https://emailing-"+s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")+(c?"."+c:"")+"/";}}catch(e){}return document.referrer;})()})}).catch(function(){});
 })();
 </script>
+<script src="/bmb-premium.js" defer></script>
 </body>
 </html>

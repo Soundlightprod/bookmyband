@@ -111,6 +111,7 @@
   @media (max-width:760px){ .bmb-foot-in{grid-template-columns:1fr; text-align:center;} .bmb-foot img{margin:0 auto;} }
 
 </style>
+<link rel="stylesheet" href="/bmb-premium.css">
 </head>
 <body>
 <header class="bmb-head">
@@ -126,6 +127,7 @@
   <h1 class="sec-title">Nos <span class="grad-text">artistes</span></h1>
   <p class="lead">Groupes live, tributes, cabaret, DJ : choisissez l'ambiance de votre événement et découvrez l'artiste qui lui correspond.</p>
   <div class="marquee" aria-hidden="true"><div class="trk"><span class="o">Cache Candy</span><em>★</em><span class="g">Tribute ABBA</span><em>★</em><span class="o">Tribute Calogero</span><em>★</em><span class="g">Panache</span><em>★</em><span class="o">Alchimie</span><em>★</em><span class="g">The Fine Allies</span><em>★</em><span class="o">NooN Coverband</span><em>★</em><span class="g">DJ Animation</span><em>★</em><span class="o">Tribute Matmatah</span><em>★</em><span class="g">Tribute Kool &amp; the Gang</span><em>★</em><span class="o">Bim Bam Boom</span><em>★</em><span class="g">Tribute Bee Gees</span><em>★</em><span class="o">Tribute Phil Collins</span><em>★</em><span class="g">Tribute Balavoine</span><em>★</em><span class="o">Tribute Barry White</span><em>★</em><span class="g">Tribute Céline Dion</span><em>★</em><span class="o">Tékila The Band</span><em>★</em><span class="g">Clément Blouin — Magicien</span><em>★</em><span class="o">Cache Candy</span><em>★</em><span class="g">Tribute ABBA</span><em>★</em><span class="o">Tribute Calogero</span><em>★</em><span class="g">Panache</span><em>★</em><span class="o">Alchimie</span><em>★</em><span class="g">The Fine Allies</span><em>★</em><span class="o">NooN Coverband</span><em>★</em><span class="g">DJ Animation</span><em>★</em><span class="o">Tribute Matmatah</span><em>★</em><span class="g">Tribute Kool &amp; the Gang</span><em>★</em><span class="o">Bim Bam Boom</span><em>★</em><span class="g">Tribute Bee Gees</span><em>★</em><span class="o">Tribute Phil Collins</span><em>★</em><span class="g">Tribute Balavoine</span><em>★</em><span class="o">Tribute Barry White</span><em>★</em><span class="g">Tribute Céline Dion</span><em>★</em><span class="o">Tékila The Band</span><em>★</em><span class="g">Clément Blouin — Magicien</span><em>★</em></div></div>
+  <div class="cat-tools"><input id="q" type="search" placeholder="Rechercher un artiste, un style…" aria-label="Rechercher un artiste"><select id="sort" aria-label="Trier"><option value="def">Tri : sélection</option><option value="az">Tri : A à Z</option></select></div>
   <div class="filters"><button data-f="all" class="on">Tous</button><button data-f="tributes">Tributes</button><button data-f="cabaret">Spectacles Cabaret</button><button data-f="pop">Pop Française</button><button data-f="reprises">Groupes de reprises</button><button data-f="magie">Magie</button><button data-f="dj">DJ</button></div>
   <div class="grid">
     <a class="pass" href="tribute-abba" data-cat="tributes"><div class="ph"><img src="abba-photo-1.jpg" alt="Tribute ABBA" loading="lazy" style="object-position:center 45%"></div><span class="tag">Tribute</span><span class="num">01</span><div class="stub"><h3>Tribute ABBA</h3><p>Groupe live complet, hommage aux plus grands tubes d&#x27;ABBA.</p><div class="row"><span class="cta"><b>Voir la fiche</b> <i>→</i></span><span class="bar"></span></div></div></a>
@@ -170,5 +172,6 @@
   (function(){try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem("slp_notrack","1");if(/[?&]notrack=0/.test(location.search))localStorage.removeItem("slp_notrack");if(localStorage.getItem("slp_notrack"))return Promise.resolve();}catch(e){}return fetch.apply(window,arguments);})("https://soundlightprod.fr/api/track-visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({artist_slug:"artistes",session_id:sid,site:"bmb",ref:(function(){try{var q=new URLSearchParams(location.search),s=q.get("utm_source")||(q.get("utm_medium")==="email"?"email":"");if(s){var c=(q.get("utm_campaign")||"").toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,50);return "https://emailing-"+s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")+(c?"."+c:"")+"/";}}catch(e){}return document.referrer;})()})}).catch(function(){});
 })();
 </script>
+<script src="/bmb-premium.js" defer></script>
 </body>
 </html>
