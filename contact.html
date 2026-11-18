@@ -4,13 +4,13 @@
 <script src="/consent.js" data-legal="/mentions-legales"></script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devis gratuit — réserver un groupe ou un DJ | Book My Band</title>
-<meta name="description" content="Demandez un devis gratuit et sans engagement pour réserver un groupe live, un tribute, une revue cabaret ou un DJ : réponse sous 48 h.">
+<meta name="description" content="Demandez un devis gratuit et sans engagement pour réserver un groupe live, un tribute, une revue cabaret ou un DJ : réponse sous 24 h.">
 <meta name="keywords" content="tribute ABBA, tribute Calogero, tribute Bee Gees, tribute Phil Collins, tribute Kool and the Gang, tribute Matmatah, tribute Balavoine, tribute Barry White, spectacle tribute, groupe tribute, revue cabaret, spectacle cabaret, groupe de reprises, DJ animation, groupe de musique live, concert, festival, festivités, marché gourmand, saison culturelle, soirée privée, mariage, gala, sonorisation, éclairage scénique, son et lumière, réservation groupe, booking artiste">
 <link rel="canonical" href="https://bookmyband.fr/contact">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0a0a0a">
 <meta property="og:site_name" content="Book My Band"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website">
-<meta property="og:title" content="Devis gratuit — réserver un groupe ou un DJ | Book My Band"><meta property="og:description" content="Demandez un devis gratuit et sans engagement pour réserver un groupe live, un tribute, une revue cabaret ou un DJ : réponse sous 48 h."><meta property="og:url" content="https://bookmyband.fr/contact"><meta property="og:image" content="https://bookmyband.fr/bmb-banniere.jpg">
+<meta property="og:title" content="Devis gratuit — réserver un groupe ou un DJ | Book My Band"><meta property="og:description" content="Demandez un devis gratuit et sans engagement pour réserver un groupe live, un tribute, une revue cabaret ou un DJ : réponse sous 24 h."><meta property="og:url" content="https://bookmyband.fr/contact"><meta property="og:image" content="https://bookmyband.fr/bmb-banniere.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -185,18 +185,20 @@
 </header>
 <section class="wrap" style="max-width:860px;">
   <span class="kicker">Contact</span>
-  <h1 class="sec-title">Réservez <span class="grad-text">votre artiste</span></h1>
-  <p class="lead">Dites-nous en plus sur votre événement : nous revenons vers vous rapidement avec les disponibilités et un devis.</p>
+  <h1 class="sec-title">Demandez <span class="grad-text">une proposition</span></h1>
+  <p class="lead">Dites-nous en plus sur votre événement : nous revenons vers vous sous 24 h avec les disponibilités et une proposition adaptée.</p>
   <form id="f" class="form">
-    <div class="row"><label>Nom<input id="n" required></label><label>Email<input id="e" type="email" required></label></div>
-    <div class="row"><label>Téléphone<input id="t" type="tel"></label><label>Date de l'événement<input id="d" placeholder="ex. 15 juin 2027"></label></div>
-    <div class="row"><label>Artiste souhaité<select id="a"><option>Je ne sais pas encore</option><option>Cache Candy</option><option>Tribute ABBA</option><option>Tribute Calogero</option><option>Panache</option><option>Alchimie</option><option>The Fine Allies</option><option>NooN Coverband</option><option>DJ Animation</option><option>Tribute Matmatah</option><option>Tribute Kool &amp; the Gang</option><option>Bim Bam Boom</option><option>Tribute Bee Gees</option><option>Tribute Phil Collins</option><option>Tribute Balavoine</option><option>Tribute Barry White</option><option>Tribute Céline Dion</option><option>Tékila The Band</option><option>Clément Blouin — Magicien</option></select></label><label>Lieu (ville)<input id="l"></label></div>
+    <div class="row"><label>Nom *<input id="n" required autocomplete="name"></label><label>Email *<input id="e" type="email" required autocomplete="email"></label></div>
+    <div class="row"><label>Téléphone *<input id="t" type="tel" required autocomplete="tel"></label><label>Date de l'événement<input id="d" placeholder="ex. 15 juin 2027"></label></div>
+    <div class="row"><label>Artiste souhaité<select id="a"><option>Je ne sais pas encore</option><option>Cache Candy</option><option>Tribute ABBA</option><option>Tribute Calogero</option><option>Panache</option><option>Alchimie</option><option>The Fine Allies</option><option>NooN Coverband</option><option>DJ Animation</option><option>Tribute Matmatah</option><option>Tribute Kool &amp; the Gang</option><option>Bim Bam Boom</option><option>Tribute Bee Gees</option><option>Tribute Phil Collins</option><option>Tribute Balavoine</option><option>Tribute Barry White</option><option>Tribute Céline Dion</option><option>Tékila The Band</option><option>Clément Blouin — Magicien</option></select></label><label>Commune *<input id="l" required></label></div>
+    <div class="row"><label>Type d'événement<select id="ty"><option value="">À préciser</option><option>Mairie / collectivité</option><option>Festival</option><option>Entreprise / CSE</option><option>Mariage / fête privée</option><option>Association / comité des fêtes</option></select></label><label>Jauge estimée (facultatif)<input id="j" placeholder="ex. 300 personnes"></label></div>
+    <label>Budget indicatif (facultatif)<input id="bu" placeholder="ex. 3 000 €"></label>
     <label>Votre message<textarea id="m" rows="6" placeholder="Type d'événement, nombre d'invités, horaires..."></textarea></label>
     <button class="btn btn-grad" type="submit">Envoyer ma demande</button>
     <input type="checkbox" id="hp" tabindex="-1" autocomplete="off" style="display:none">
     <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"><label for="site_web">Ne pas remplir</label><input type="text" id="site_web" tabindex="-1" autocomplete="off"></div>
     <p class="msg" id="msg" role="status"></p>
-    <p class="note">Réponse sous 48 h. Vous pouvez aussi nous appeler au <a href="tel:+33631949653">+33 6 31 94 96 53</a>.</p>
+    <p class="note">* Champs obligatoires. Réponse sous 24 h. Cette demande ne vaut pas confirmation de réservation. Vous pouvez aussi nous appeler au <a href="tel:+33631949653">+33 6 31 94 96 53</a>.</p>
   </form>
 </section>
 <footer class="bmb-foot">
@@ -215,7 +217,7 @@ F.addEventListener('submit',function(ev){ev.preventDefault(); if(document.getEle
  var sid=''; try{ sid=sessionStorage.getItem('bmb_visit_sid')||''; }catch(e){}
  var art=v('a');
  var data={nom:v('n'), email:v('e'), telephone:v('t'), date_event:v('d'), lieu:v('l'), artiste_nom:art, sujet:'Book My Band - réservation d\'artiste',
-   message:v('m'),
+   message:[v('ty')&&('Type d\'événement : '+v('ty')),v('j')&&('Jauge : '+v('j')),v('bu')&&('Budget indicatif : '+v('bu')),v('m')].filter(Boolean).join('\n'),
    site_web:document.getElementById('site_web').value, page:'contact', site:'bmb', lang:'fr', session_id:sid, cle:CLE,
    dt:window.slpAS?window.slpAS.dt():Math.round(performance.now()), cf_token:window.slpAS?window.slpAS.token():''};
  if(window.slpAS) Object.assign(data, window.slpAS.captcha());
