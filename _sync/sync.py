@@ -22,7 +22,7 @@ SLP = pathlib.Path(sys.argv[1]).resolve()
 BMB = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else pathlib.Path(__file__).resolve().parent.parent).resolve()
 TEMPLATE = BMB / 'tribute-calogero.html'          # fiche BMB servant de gabarit (en-tête, CSS BMB, pied de page)
 CATS = {'groupes-de-reprises': 'reprises', 'tributes': 'tributes', 'cabaret': 'cabaret',
-        'jazz-soul-funk': 'jazz', 'pop-francaise': 'pop', 'dj': 'dj'}
+        'jazz-soul-funk': 'jazz', 'pop-francaise': 'pop', 'dj': 'dj', 'magie': 'magie'}
 EXCLUDE = {l.strip() for l in (BMB / '_sync' / 'exclude.txt').read_text(encoding='utf-8').splitlines()
            if l.strip() and not l.startswith('#')} if (BMB / '_sync' / 'exclude.txt').exists() else set()
 
@@ -242,7 +242,11 @@ def main():
         if (BMB / f"{a['slug']}.html").exists():
             add_names(a)
             continue
-        build_page(a)
+        try:
+            build_page(a)
+        except Exception as e:  # nouvelle mise en page SLP non reconnue : on passe, sans bloquer les autres
+            print('IGNORÉ (fiche à créer à la main) :', a['slug'], '-', e)
+            continue
         add_names(a)
         add_card(BMB / 'artistes.html', a)
         add_card(BMB / 'index.html', a)
