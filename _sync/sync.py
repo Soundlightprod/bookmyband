@@ -179,7 +179,8 @@ def update_home(a):
     def fix(m):
         s = m.group(0)
         s = re.sub(r'<span class="cnt">\d+</span>', f'<span class="cnt">{cnt:02d}</span>', s)
-        s = re.sub(r'<span class="lbl">\d+ artistes? →</span>', f'<span class="lbl">{cnt} artiste{"s" if cnt > 1 else ""} →</span>', s)
+        mot = 'artiste' if a['cat'] == 'magie' else 'groupe'
+        s = re.sub(r'<span class="lbl">\d+ (?:artistes?|groupes?) →</span>', f'<span class="lbl">{cnt} {mot}{"s" if cnt > 1 else ""} →</span>', s)
         return s
     h = re.sub(rf'<a class="cat" href="artistes(?:\.html)?#{a["cat"]}">.*?</a>', fix, h, count=1, flags=re.S)
     if f'bookmyband.fr/{a["slug"]}"' not in h:
