@@ -85,3 +85,6 @@
     }
   }
 })();
+
+/* Header : transparent en haut de page, minuit dès le défilement */
+(function(){var h=document.querySelector('.bmb-head');if(!h)return;function f(){h.classList.toggle('scrolled',window.scrollY>40)}f();window.addEventListener('scroll',f,{passive:true})})();
