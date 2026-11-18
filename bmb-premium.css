@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap');
 /* Book My Band — couche « Live Booking Experience » (accueil, catalogue, fiches) */
 :focus-visible{outline:3px solid #fff; outline-offset:3px; border-radius:4px}
 /* Badge exclusivité */
@@ -69,3 +70,46 @@
   body.has-mbar .bmb-foot{padding-bottom:90px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important} .hero2 .slides img:not(:first-child){display:none}}
+
+/* ===== Thème « Live Booking Experience » (aligné sur la maquette) ===== */
+:root{--ink:#0a0a0a !important; --ink-2:#141210 !important; --paper:#f5f2ee !important; --muted:#b3aca4 !important; --line:#2a2522 !important;
+  --grad:#ff2e88 !important; --accent:#ff2e88 !important; --amber:#ff7a1a !important; --pink:#ff2e88 !important; --gold:#ff2e88 !important; --violet:#ff2e88 !important; --blue:#ff7a1a !important}
+body{background:#0a0a0a !important; color:#f5f2ee !important; font-family:'Inter',system-ui,sans-serif !important}
+p,li,label,input,select,textarea,button,summary,.lead,.stub p,.faq-it p{font-family:'Inter',system-ui,sans-serif}
+h1,h2,h3,h4,.sec-title,.pass h3,.cat b,.band h2,.bmb-foot h4,.tl h3,.aud h3,.hero2 h1{font-family:'Anton','Impact','Arial Narrow',sans-serif !important; font-weight:400 !important; text-transform:uppercase; letter-spacing:.01em !important}
+.sec-title{font-size:clamp(2.2rem,5vw,3.6rem) !important; line-height:1.04 !important}
+.hero2 h1{font-size:clamp(3rem,9vw,7.2rem) !important; line-height:1.04 !important; max-width:14ch !important}
+.page-hero h1{font-size:clamp(2.8rem,7vw,5.6rem) !important; line-height:1 !important}
+.section-head h2{font-size:clamp(2rem,4vw,3rem) !important}
+.pass h3{font-size:1.25rem !important} .cat b{font-size:1.3rem !important} .band h2{font-size:clamp(2.4rem,6vw,4.6rem) !important; line-height:1 !important}
+.tl h3,.aud h3{font-size:1.35rem !important}
+.kicker,.label,.pass .tag,.pass .cta,.cat .lbl,.filters button,.excl,.feat .ft,.breadcrumb{font-family:'Inter',system-ui,sans-serif !important; font-weight:600 !important; letter-spacing:.22em !important; text-transform:uppercase}
+.kicker,.label{color:#ff7a1a !important; font-size:.78rem !important}
+.grad-text{background:none !important; -webkit-text-fill-color:#ff2e88; color:#ff2e88 !important}
+/* Boutons : carrés, texte sombre sur rose */
+.btn,.bmb-cta,.filters button{border-radius:0 !important; text-transform:uppercase; letter-spacing:.08em !important; font-weight:700 !important}
+.btn-grad,.btn-primary,.bmb-cta{background:#ff2e88 !important; color:#0a0a0a !important; border:0 !important}
+.btn-ghost{border:2px solid #f5f2ee !important; color:#f5f2ee !important; background:transparent !important}
+.btn:hover,.bmb-cta:hover{filter:brightness(1.08)}
+.filters button{background:#141210 !important; border:1px solid #2a2522 !important; color:#f5f2ee !important}
+.filters button.on{background:#ff2e88 !important; color:#0a0a0a !important; border-color:#ff2e88 !important}
+.cat-tools input,.cat-tools select,.finder input,.finder select,.form input,.form select,.form textarea{border-radius:0 !important; background:#0a0a0a !important; border:1px solid #6b645d !important; color:#f5f2ee !important}
+/* Navigation et pied de page */
+.bmb-head{background:rgba(10,10,10,.92) !important; border-bottom:1px solid #2a2522 !important}
+.bmb-nav ul a{text-transform:uppercase; letter-spacing:.06em; font-size:.8rem !important; font-weight:600 !important; font-family:'Inter',sans-serif !important}
+.bmb-nav ul a.on{background:none !important; -webkit-text-fill-color:#ff2e88; color:#ff2e88 !important}
+.bmb-foot{background:#0a0a0a !important; border-top:1px solid #2a2522 !important}
+.bmb-foot h4{font-size:1rem !important; letter-spacing:.06em !important}
+/* Surfaces et cartes : angles droits, fonds de la maquette */
+.band,.cat,.finder,.faq-it,.aud div,.info-item,.feat article,.pass,.photo-grid a,.photo-grid img,.hero-banner{border-radius:0 !important}
+.band{background:#141210 !important; border-left:4px solid #ff2e88 !important; border:1px solid #2a2522 !important; border-left:4px solid #ff2e88 !important}
+.cat,.finder,.faq-it,.feat article,.info-item{background:#141210 !important; border-color:#2a2522 !important}
+.cat::before,.finder{border-left-color:#ff2e88 !important}
+.cat::before{background:#ff2e88 !important}
+.pass .stub{background:#141210 !important}
+.pass .ph::after,.feat .fp::after,.bmb-hero-img::after,.hero2 .slides::after{background:#ff2e88 !important}
+.feat .fp::after{opacity:.35 !important}
+.tl .dot{background:#ff2e88 !important; color:#0a0a0a !important}
+.faq-it summary::after{color:#ff2e88 !important}
+section div[style*="aspect-ratio"]{border-radius:0 !important}
+.mbar a{border-radius:0}
