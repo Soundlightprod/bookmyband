@@ -18,7 +18,7 @@
 .hero2 .btn{padding:18px 34px; text-transform:uppercase; letter-spacing:.06em; font-size:.88rem}
 @media (max-width:700px){.hero2{min-height:88vh}.hero2-in{padding:120px 20px 48px}.hero2 .slides img{object-position:center 30%}}
 /* Univers : tuiles photo plein cadre */
-.cats{grid-template-columns:repeat(auto-fit,minmax(210px,1fr)) !important}
+.cats{grid-template-columns:repeat(auto-fit,minmax(168px,1fr)) !important; gap:14px !important}
 .cat{min-height:340px !important; padding:22px !important; justify-content:flex-end !important; border-radius:8px !important}
 .cat::before{z-index:3}
 .cat .av{position:absolute !important; inset:0; margin:0 !important; display:block !important; z-index:0}
